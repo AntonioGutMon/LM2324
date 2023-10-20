@@ -25,13 +25,22 @@
     <label for="apellidos">Apellidos:</label>
     <input type="text" id="apellidos" name="apellidos"><br>
 
+          </fieldset>
+
     <fieldset>
         <legend>Indique sus preferencias por favor</legend>
 
-        <form>
             <select name="sexo" id="sexo" multiple>
                 <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
+            </select><br>
+
+                <input type="checkbox" name="sexo" value="sexomujer"> Mujer <br>
+                <input type="checkbox" name="sexo" value="sexohombre"> Hombre <br><br>
+
+                <label for="">Elija una fecha:</label>
+                <input type="date" name="fecha_nacimiento">
+
             </select>
         </form>
 
