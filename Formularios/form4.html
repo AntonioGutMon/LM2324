@@ -6,56 +6,58 @@
     <title>Formulario 4</title>
 </head>
 <body>
-    <fieldset>
-        <p><b>FORMULARIO DE PAGO</b> (Los campos obligatorios se han marcado con *)</p>
-            <fieldset>
-                <legend><b>Informacion de contacto</b></legend><br>
-
+    <form action="">
+        <fieldset>
+            <p><b>FORMULARIO DE PAGO</b> (Los campos obligatorios se han marcado con *)</p>
                 <fieldset>
-                    <legend>Profesión</legend>
-                        <input type="radio">Profesor/a <br>
-                        <input type="radio">Esudiante <br> 
-                        <input type="radio">Otro <br>
-                </fieldset><br>
+                    <legend><b>Informacion de contacto</b></legend><br>
 
-                <fieldset>
-                    <legend>Tratamiento</legend><br>
-                        <input type="radio">Sr/Sra <br>
-                        <input type="radio">Dr/Dra <br>
-                        <input type="radio">Otro <br>
-                </fieldset><br><br>
+                    <fieldset>
+                        <legend>Profesión</legend>
+                            <input name="profesion" type="radio">Profesor/a <br>
+                            <input name="profesion" type="radio">Esudiante <br> 
+                            <input name="profesion" type="radio">Otro <br>
+                    </fieldset><br>
 
-                <label for="">Nombre: *</label><br>
-                <input type="text"><br>
-                <label for="">Correo: *</label><br>
-                <input type="text"><br>
-                <label for="">Número de teléfono: *</label><br>
-                <input type="text"><br>
-                <label for="">Contraseña: *</label><br>
-                <input type="text"><br><br>
+                    <fieldset>
+                        <legend>Tratamiento</legend><br>
+                            <input name="tratamiento" type="radio">Sr/Sra <br>
+                            <input name="tratamiento" type="radio">Dr/Dra <br>
+                            <input name="tratamiento" type="radio">Otro <br>
+                    </fieldset><br><br>
 
-                <fieldset>
-                    <legend>Información de pago</legend>
-                    <label for="">Tipo de tarjeta:</label>
-                    <select name="" id="">
-                        <option value="visa">Visa</option>
-                        <option value="mastercard">Mastercard</option>
-                        <option value="american_express">American Express</option>
-                    </select><br><br>
-                    <label for="">Número de tarjeta: *</label><br>
-                    <input type="text"><br>
-                    <label for="">Fecha de caducidad: *</label><br>
-                    <input type="text"><br><br>
-                    <label for="">Cuenta de paypal: *</label><br>
-                    <input type="text"><br><br>
-                    <label for="">Metodo de pago preferido:</label>
-                    <select name="" id="">
-                        <option value="tarjeta_credito">Tarjeta de crédito</option>
-                        <option value="paypal">Paypal</option>
-                    </select><br><br>
-                </fieldset><br>
-                    <input type="submit">  
-            </fieldset>
-    </fieldset>
+                    <label for="">Nombre: *</label><br>
+                    <input required type="text"><br>
+                    <label for="">Correo: *</label><br>
+                    <input required type="text"><br>
+                    <label for="">Número de teléfono: *</label><br>
+                    <input required type="text"><br>
+                    <label for="">Contraseña: *</label><br>
+                    <input required type="text"><br><br>
+
+                    <fieldset>
+                        <legend>Información de pago</legend>
+                        <label for="">Tipo de tarjeta:</label>
+                        <select name="tipo_de_tarjeta" id="">
+                            <option value="visa">Visa</option>
+                            <option value="mastercard">Mastercard</option>
+                            <option value="american_express">American Express</option>
+                        </select><br><br>
+                        <label for="">Número de tarjeta: *</label><br>
+                        <input required type="text"><br>
+                        <label for="">Fecha de caducidad: *</label><br>
+                        <input required type="text"><br><br>
+                        <label for="">Cuenta de paypal: *</label><br>
+                        <input required type="text"><br><br>
+                        <label for="">Metodo de pago preferido:</label>
+                        <select name="metodo_de_pago" id="">
+                            <option value="tarjeta_credito">Tarjeta de crédito</option>
+                            <option value="paypal">Paypal</option>
+                        </select><br><br>
+                    </fieldset><br>
+                        <input style="background-color: black; color:white;" value="VALIDAR EL PAGO" type="submit">  
+                </fieldset>
+        </fieldset>
+    </form>
 </body>
 </html>
