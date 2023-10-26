@@ -3,3 +3,9 @@ p {
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
 }
+h1 {
+    color: black;
+}
+body {
+    background-color:grey ;
+}
