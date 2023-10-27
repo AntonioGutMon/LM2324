@@ -1,0 +1,80 @@
+/* Establecemos un fondo degradado con colores vibrantes */
+body {
+    background: linear-gradient(45deg, #FF6B6B, #6B6BFF);
+    color: #FFF;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  /* Estilizamos los encabezados con una fuente llamativa y un sombreado de texto */
+  h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Estilizamos los párrafos */
+  p {
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
+  
+  /* Agregamos un efecto de transición a los enlaces */
+  a {
+    color: #FFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  /* Cambiamos el color de los enlaces al pasar el mouse sobre ellos */
+  a:hover {
+    color: #FFD700; /* Color dorado */
+  }
+  
+  /* Estilizamos los botones */
+  .button {
+    background-color: #FFD700;
+    color: #000;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Cambiamos el color de fondo de los botones al pasar el mouse sobre ellos */
+  .button:hover {
+    background-color: #FFA500; /* Color naranja */
+  }
+  
+  /* Estilizamos una caja con sombra */
+  .card {
+    background: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  /* Agregamos un borde redondeado a las imágenes */
+  img {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Estilizamos una lista con viñetas personalizadas */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li::before {
+    content: "\2022"; /* Código de la viñeta de viñetas redondas */
+    color: #FFD700;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
