@@ -1,0 +1,19 @@
+#publi{
+    background-image: url(Images/banner.png);
+    width: 1920px;
+    height: 100px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+#contenido{
+    position: relative;
+    top: 80px;
+}
+.float1{
+    float: left;
+    background-image: url(Images/rojo.jpg);
+    height: 500px;
+    margin-left: 0px;
+}
