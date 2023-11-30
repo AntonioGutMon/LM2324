@@ -53,15 +53,18 @@ nav a:hover{
         display: flex;
         flex-wrap: wrap;
         border-bottom: 0.5rem solid;
-
     }
     nav, header{
-        order: -1;
+        order: 1;
     }
     article{
         flex: 75%;
     }
     aside{
         flex: 25%;
+        order: 3
+    }
+    header{
+        order: 2;
     }
 }
