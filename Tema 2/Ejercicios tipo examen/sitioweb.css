@@ -5,7 +5,7 @@ body{
 }
 #cajamain{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-areas: '' '';
     background-color: lightgrey;
     text-align: center;
     line-height: 150px;
@@ -19,10 +19,25 @@ body{
 header{
     background-color: cyan;
     border: solid 4px;
-    grid-column: 1 / 4;
+    grid-area: 1;
 }
-menu{
+nav{
     background-color: beige;
     border: solid 4px;
-    grid-column: 1 / 4;
+
+}
+#content{
+    background-color: rgb(231, 111, 67);
+    border: solid 4px;
+    grid-area: 2;
+}
+#banner{
+    background-color: rgb(20, 161, 161);
+    border: solid 4px;
+    grid-area: 3;
+}
+footer{
+    background-color: gray;
+    border: solid 4px;
+    grid-area: 4;
 }
