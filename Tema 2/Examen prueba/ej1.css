@@ -8,6 +8,7 @@ p::first-letter {
 }
 p{
     margin: 10px 10px 10px 10px ;
+    line-height: 20px;
 } 
 h1{
     text-align: center;
@@ -25,18 +26,27 @@ h1{
     box-sizing: border-box;
     margin-top: 0;
 }
+.lado1{
+    order: 1;
+}
+.lado2{
+    order: 3;
+}
 #centro{
     background-color: white;
     flex-basis: 60%;
     flex: 1;
+    padding-bottom: 15%;
+    margin-bottom: 0px;
+    order: 2;
 }
 #foto{
-    border-radius: 10px;
-    width: 50%;
+    border-radius: 30px;
+    width: 70%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 7px;
+    margin-top: 15px;
 }
 .nodo{
     max-width: 100%;
@@ -44,6 +54,42 @@ h1{
     margin-left: 20px;
     margin-right: 20px;
 }
-.lados{
-    
+#abajo{
+    background-color: #ffd100;
+    margin: auto;
+    padding: 5px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+    margin-bottom: 0;
+}
+#email{
+    text-decoration: none;
+    color: black;
+    cursor: help;
+}
+#info{
+    text-decoration: none;
+    color: #ffd100;
+    cursor: help;
+}
+#centro:hover{
+    background-color: #970043;
+}
+@media only screen and (max-width: 768px){
+    boddy{
+        
+    }
+    #cajamain{
+        flex-direction: column;
+    } 
+    .lado1{
+        order: 1;
+    }
+    #centro{
+        order: 2;
+    }
+    .lado2{
+        order: 3;
+    }
 }

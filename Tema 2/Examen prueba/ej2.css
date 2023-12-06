@@ -1,0 +1,80 @@
+body{
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(52, 49, 59);
+    padding: 1rem;
+}
+#cajamain{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}
+#caja1{
+    background-color: rgb(11, 76, 26);
+    grid: 1fr;
+    padding: 1em;
+    color: white;
+}
+#caja2{
+    background-color: white;
+    grid: 2fr;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.b{
+    grid: 50%;
+    padding: 1em;
+}
+.c{
+    grid: 50%;
+    padding: 1em;
+}
+.d{
+    grid-column: 1 / 3;
+    padding: 1em;
+}
+.f{
+    grid: 50%;
+    padding: 1em;
+}
+.g{
+    grid: 50%;
+    padding: 1em;
+}
+.e{
+    grid-column: 1 / 3;
+    padding: 1em;
+}
+.a{
+    width: 100%;
+    border: solid 1px;
+    padding: 10px;
+}
+.a:hover{
+    border: solid 3px gold;
+}
+#boton{
+    background-color: rgb(11, 76, 26);
+    color: white;
+}
+#boton:hover{
+    background-color: grey;
+}
+@media only screen and (max-width: 700px){
+    #cajamain{
+        display: grid;
+        grid-template-rows: auto auto;
+    }
+    #caja1{
+        grid-row: 1 / 2;
+        padding: 2em;
+    }
+    #caja2{
+        grid-row: 2 / 3 ;
+        padding: 2em;
+    }
+}
