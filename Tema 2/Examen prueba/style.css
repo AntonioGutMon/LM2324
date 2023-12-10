@@ -9,6 +9,7 @@ body{
 #cajamain{
     display: flex;
     flex-direction: row;
+    height: 1050px;
 }
 h1{
     background-color: darkgray;
@@ -53,6 +54,7 @@ nav, section, h1, footer{
     border-bottom: dotted 1px;
     border-color: white;
     line-height: 30px;
+    text-decoration: none;
 }
 @media only screen and (max-width: 640px){
     #cajamain{
