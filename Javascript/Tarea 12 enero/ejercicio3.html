@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript ejercicio 3</title>
+    <title>Celsius a Fahrenheit</title>
+    <script>
+        function transformar(){
+         var celsius = document.getElementById('grados').value;
+         var fahrenheit = celsius * 9/5 + 32;
+         document.getElementById("resultado").innerHTML = fahrenheit + "ºF";
+        }
+     </script>
 </head>
 <body>
     <label for="">Grados Celsius:</label>
-    <input type="text" id="valor">
-    <button onclick="convertir()">Convertir a Grados Fahrenheit</button>
-
+    <input id="grados" type="text">
+    <button onclick="transformar('celsius')">Pasar a Fahrenheit</button>
     <p id="resultado"></p>
-
-    <script>
-        let valor = document.getElementById("resultado").value;
-
-        function convertir(){
-            document.getElementById(resultado) = valor * 0.91;
-        }
-    </script>
-
 </body>
 </html>
