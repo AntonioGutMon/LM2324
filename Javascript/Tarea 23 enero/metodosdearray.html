@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodos de Arrays</title>
+    <style>
+        body{
+            margin: 20px 20px 20px 20px;
+            word-wrap: break-word;
+        }
+        div{
+            margin: 10px 0px 0px 0px;
+            width: 70%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <label for="">Añadir:</label>
+        <input type="text" id="add">
+        <button onclick="add()">Añadir</button>
+    </div>
+
+    <div>
+        <label for="">Eliminar:</label>
+        <input type="text" id="eliminar">
+        <button onclick="eliminar()">Eliminar</button>
+    </div>
+
+    <div>
+        <label for="">Buscar:</label>
+        <input type="text" id="buscar">
+        <button onclick="buscar()">Buscar</button>
+    </div>
+
+    <div>
+        <button onclick="subirobajar(true)">Subir</button>
+        <button onclick="subirobajar(false)">Bajar</button>
+    </div>
+
+<h2>Array:</h2>
+<div id="salida"></div>
+
+<script>
+  let arrayData = [];
+
+  function a() {
+    document.getElementById('salida').textContent = JSON.stringify(arrayData);
+  }
+
+  function add() {
+    const value = document.getElementById('add').value;
+    if (value.trim() !== '') {
+      arrayData.push(value);
+      a();
+    }
+  }
+
+  function eliminar() {
+    const value = document.getElementById('eliminar').value;
+    const index = arrayData.indexOf(value);
+    if (index !== -1) {
+      arrayData.splice(index, 1);
+      a();
+    }
+  }
+
+  function buscar() {
+    const value = document.getElementById('buscar').value;
+    const index = arrayData.indexOf(value);
+    if (index !== -1) {
+      alert(`El elemento se encuentra en la posición: ${index}`);
+    } else {
+      alert('El elemento no se ha encontrado');
+    }
+  }
+
+  function subirobajar(subir) {
+    arrayData.sort((a, b) => {
+      return subir ? a.localeCompare(b) : b.localeCompare(a);
+    });
+    a();
+  }
+</script>
+</body>
+</html>
