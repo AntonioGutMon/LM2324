@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma y multiplicación de numeros en el Array</title>
+</head>
+<body>
+    <label for="">Introdce el número:</label>
+    <input id="numero" type="text">
+    <button onclick="add()">Añadir</button>
+    <button onclick="sumar()">Sumar</button>
+    <button onclick="multiplicar()">Multiplicar</button>
+    <p id="salida"></p>
+    <script>
+
+        var number = []
+
+        function add(){
+            var algo = parseFloat(document.getElementById('numero').value);
+            number.push(algo);
+            number = document.getElementById('salida').innerHTML
+        }
+
+        
+
+    </script>
+</body>
+</html>
