@@ -6,24 +6,60 @@
     <title>Suma y multiplicación de numeros en el Array</title>
 </head>
 <body>
-    <label for="">Introdce el número:</label>
-    <input id="numero" type="text">
-    <button onclick="add()">Añadir</button>
-    <button onclick="sumar()">Sumar</button>
-    <button onclick="multiplicar()">Multiplicar</button>
-    <p id="salida"></p>
+    <h1>Calculadora de Números Reales</h1>
+
+    <input type="text" id="numeroInput" step="any" placeholder="Ingrese un número real">
+    <button onclick="agregarNumero()">Agregar</button>
+    <br><br>
+    <span id="numerosArray"></span>
+    <br><br>
+    <button onclick="realizarOperacion('sumar')">Sumar</button>
+    <button onclick="realizarOperacion('multiplicar')">Multiplicar</button>
+    <br><br>
+    <span id="resultado"></span>
+    
     <script>
-
-        var number = []
-
-        function add(){
-            var algo = parseFloat(document.getElementById('numero').value);
-            number.push(algo);
-            number = document.getElementById('salida').innerHTML
+      var numeros = [];
+    
+      function agregarNumero() {
+        var inputNumero = document.getElementById("numeroInput");
+        var numero = parseFloat(inputNumero.value);
+    
+        if (!isNaN(numero)) {
+          numeros.push(numero);
+          actualizarNumeros();
+          inputNumero.value = "";
+        } else {
+          alert("Ingrese un número real válido.");
         }
-
-        
-
-    </script>
+      }
+    
+      function actualizarNumeros() {
+        var numerosArray = document.getElementById("numerosArray");
+        numerosArray.textContent = numeros.join(", ");
+      }
+    
+      function realizarOperacion(operacion) {
+        var resultadoElement = document.getElementById("resultado");
+        var resultado;
+    
+        switch (operacion) {
+          case 'sumar':
+            resultado = numeros.reduce(function (total, num) {
+              return total + num;
+            }, 0);
+            break;
+          case 'multiplicar':
+            resultado = numeros.reduce(function (total, num) {
+              return total * num;
+            }, 1);
+            break;
+          default:
+            resultado = "Operación no válida";
+        }
+    
+        resultadoElement.textContent = "Resultado: " + resultado;
+      }
+    </script>  
 </body>
 </html>
