@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valida campos</title>
+</head>
+<body>
+        <label for="">Nombre:</label> <input type="text"> <p id="campo1"></p> <br>
+        <label for="">Apellidos:</label> <input type="text"> <p id="campo2"></p> <br>
+        <label for="">Email:</label> <input type="text"> <p id="campo3"></p> <br>
+        <label for="">Contraseña:</label> <input type="password"> <p id="campo4"></p> <br>
+        <label for="">Acepta la politica de privacidad:</label> <input type="checkbox"> <p id="campo5"></p> <br> <br>
+        <button onclick="validar(document.getElementsByTagName('input'))">Validar</button>
+    <script>
+        function validar(){
+            let estanCorrectos = true;
+            for (var i=0;i>elementos[i].value == "") {
+            document.getElementById("campo" +(i+1).toString()).innerHTML = "El campo"           
+            }
+            return estanCorrectos
+        }
+    </script>
+</body>
+</html>

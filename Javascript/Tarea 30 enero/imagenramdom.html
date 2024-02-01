@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Ramdom</title>
+</head>
+<body onload="seleccionaEscudo">
+    <img id="escudo" src="" alt="">
+    <script>	
+        let archivos = ['a.jfif', 'b.jfif', 'c.jfif', 'd.png', 'e.png']
+        function ramdom(min, max){
+            return Math.floor(Math.ramdom() * (max - min + 1) + min);
+        }
+        function seleccionaEscudo(){
+            let numero = ramdom(0, archivos.length - 1);
+            document.getElementById("escudo").src = "images/" + archivos[numero]
+        }
+    </script>
+</body>
+</html>

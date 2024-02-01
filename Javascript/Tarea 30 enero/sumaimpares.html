@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumaimpares</title>
+</head>
+<body>
+    <h1>Sumapares</h1>
+    <p id="resultado"></p>
+    <script>
+        let numeros=[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        function sumaImpares(numeros){
+            let total = 0;
+            for (var i=0;i<numeros.length;i++){
+                if (numeros[i]%2 == 1)
+                total = total + numeros[i];
+            }
+        document.getElementById("resultado").innerHTML = total
+        }
+
+        sumaImpares(numeros);
+    </script>
+</body>
+</html>
