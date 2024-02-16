@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuncios Rotatorios</title>
+</head>
+<body>
+    <h1>Anuncios Rotatorios</h1>
+    <div>
+       <a href="https://store.dsautomobiles.es/configurable" id="enlaceActual" target="_blank"> <img src="banner0.png" alt="" id="fotoActual"> </a>
+    </div>
+    <script>
+        var fotos=new Array();
+        var indice=0;
+        var todasfotos;
+        fotos[0]="banner0.png"
+        fotos[1]="banner1.png"
+        fotos[2]="banner2.png"
+        fotos[3]="banner3.png"
+        fotos[4]="banner4.png"
+        fotos[5]="banner5.png"
+        
+        setInterval (function siguiente() {
+            todasfotos = fotos.length
+            if (indice==todasfotos-1) { 
+                    indice=0;
+                }
+                else
+                {
+                    indice=indice+1 ; 
+                }
+                document.getElementById("fotoActual").src = fotos[indice];
+            },
+            3000)
+
+        var enlaces=new Array();
+        var indice=0;
+        var todosenlaces;
+        enlaces[0]="https://store.dsautomobiles.es/configurable"
+        enlaces[1]="https://www.elcorteingles.es/supermercado/"
+        enlaces[2]="https://www.elcorteingles.es/daitsu/electrodomesticos/aire-acondicionado/"
+        enlaces[3]="https://www.madridhifi.com/"
+        enlaces[4]="https://launidad.movistarplus.es/?dis_c=331187589&dclid=CL-Lt9zx4_YCFdZEHQkdLpkExQ"
+        enlaces[5]="https://www.tikamoon.es/"
+
+        setInterval (function siguiente() {
+            todosenlaces = enlaces.length
+            if (indice==todosenlaces-1) { 
+                    indice=0;
+                }
+                else
+                {
+                    indice=indice+1 ; 
+                }
+                document.getElementById("enlaceActual").src = enlaces[indice];
+            },
+            3000)
+
+    </script>
+</body>
+</html>
