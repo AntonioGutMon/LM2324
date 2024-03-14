@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var numeroaacertar = Math.floor(Math.random() * 10) +1
+        var intento = ""
+        while( numeroaacertar != intento){
+            var intento = numeroaacertar
+            numeroaacertar = prompt("Intenta adivinar un numero del 1 al 10")
+            if (intento == numeroaacertar){
+                alert("Bieeenn")
+            }
+            else{
+                alert("Maaaal")
+            }
+        }
+    </script>
+</body>
+</html>

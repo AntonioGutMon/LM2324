@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circulos de colores</title>
+<style>
+.circulo {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.boton{
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-top: 30px;
+}
+#flex{
+    display: flex;
+    justify-content: center;
+}
+#red{
+    background-color: red;
+}
+#green{
+    background-color: green;
+}
+#blue{
+    background-color: blue;
+}
+</style>
+</head>
+<body>
+    <div id="flex">
+        <div class="circulo" id="red"></div>
+        <div class="circulo" id="green"></div>
+        <div class="circulo" id="blue"></div>
+    </div>
+    <div id="flex">
+        <button class="boton" onclick="desaparecerRojo()">Desaparece</button>
+        <button class="boton" onclick="desaparecerVerde()">Desaparece</button>
+        <button class="boton" onclick="desaparecerAzul()">Desaparece</button>
+    </div>
+    <div id="flex">
+        <button class="boton" onclick="aparecerRojo()">Aparece</button>
+        <button class="boton" onclick="aparecerVerde()">Aparece</button>
+        <button class="boton" onclick="aparecerAzul()">Aparece</button>
+    </div>
+    <div id="flex">
+        <button class="boton" onclick="losdosRojo()">AAAA</button>
+        <button class="boton" onclick="losdosVerde()">AAAA</button>
+        <button class="boton" onclick="losdosAzul()">AAAA</button>
+    </div>
+    <script>
+        function desaparecerRojo() {
+            document.getElementById("red").style.display="none"
+        }
+        function desaparecerVerde() {
+            document.getElementById("green").style.display="none"
+        }
+        function desaparecerAzul() {
+            document.getElementById("blue").style.display="none"
+        }
+        function aparecerRojo() {
+            document.getElementById("red").style.display="block"
+        }
+        function aparecerVerde() {
+            document.getElementById("green").style.display="block"
+        }
+        function aparecerAzul() {
+            document.getElementById("blue").style.display="block"
+        }
+        function losdosRojo() {
+            if (document.getElementById(red).style.display == "none") {
+            document.getElementById(red).style.display = "block"
+            }
+            else { document.getElementById(red).style.display = "none"
+            }
+        }
+
+    </script>
+</body>
+</html>

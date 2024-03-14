@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var lanzamiento = 0
+        var dado = ""
+        lanzamiento = Math.floor(Math.random() * 6) + 1
+        switch (lanzamiento){
+            case 1:
+            dado = "1"
+            break
+            case 2: 
+            dado = "2"
+            break
+            case 3: 
+            dado = "3" 
+            break
+            case 4: 
+            dado = "4"
+            break
+            case 5: 
+            dado = "5"
+            break
+            case 6: 
+            dado = "6"
+            break
+            default: dado = "ERROR!"
+        }
+        alert(dado)
+    </script>
+</body>
+</html>

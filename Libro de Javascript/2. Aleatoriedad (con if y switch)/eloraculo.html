@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var lanzamiento = 0 
+        var numero = ""
+        lanzamiento = Math.floor(Math.random() * 5) + 1
+        switch(lanzamiento){
+            case 1: 
+            numero = "Estas muy cerca"
+            break
+            case 2: 
+            numero = "Acertaste"
+            break
+            case 3: 
+            numero = "Estas muy cerca"
+            break
+            case 4: 
+            numero = "Estas lejos"
+            break
+            case 5: 
+            numero = "Estas muy lejos"
+            break
+        }
+        alert(numero)
+    </script>
+</body>
+</html>

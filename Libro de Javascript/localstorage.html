@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="elements">
+
+    </div>
+    <script>
+        
+        lst = [{
+            nombre: "Antonio",
+            edad: "18"
+        }]
+
+         //Localstorage guarda dos strings y eso no es un string, es un objeto
+
+         localStorage.setItem("list", JSON.stringify(lst)) //cambiamos de objeto a string y ya se puede guardar
+        
+         console.log(localStorage.getItem("list")) //el problema es que es una cadena y no lo puedo meter en un objeto, queremos que sea un objeto
+
+        //como no queremos que sea un string lo vamos a pasar a objeto 
+
+
+        lst = JSON.parse(localStorage.getItem("list"))
+
+        lst.forEach(element => {
+            let elements = document.getElementById("elements")
+            let div = document.createElement("div")
+            div.innerHTML = element.name + " "+ element.age
+            elements.appendChild(div)
+        });
+    </script>
+</body>
+</html>

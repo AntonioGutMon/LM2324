@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Escribe una contraseña:</label><input type="password" id="intento"><br>
+    <label for="">Repite la contraseña:</label><input type="password" id="repite"><br><br>
+    <button onclick="validar()">Comprobar</button><br><br>  
+    <p id="error"></p>
+
+</body>
+    <script>
+        function validar() {
+            var inten = document.getElementById("intento").value
+            var repite = document.getElementById("repite").value
+            if (inten == repite) {
+                document.getElementById("error").innerHTML = "Contraseña validada"
+            }
+            else {
+                document.getElementById("error").innerHTML = "La contraseña no es la misma, vuelve a intentarlo"
+            }
+        }
+    </script>
+</html>
