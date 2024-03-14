@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de createElement y appendChild</title>
+</head>
+<body>
+    <p>Añadir elementos a una lista con document.CreateElement y appendChild</p>
+    <ul id="lista">
+    </ul>
+    <input id="tareas" type="text">
+    <button onclick="anadirElemento()">Añade elemento</button>
+
+    <script>
+        var problemas=[]
+        function anadirElemento() {
+            var tarea = document.getElementById("tareas").value;
+            var lista = document.getElementById("lista");
+            var elemento = document.createElement("li");
+            elemento.textContent = tarea
+            lista.appendChild(elemento);
+            problemas.push(elemento);
+            var cadena="";
+            for (var i=0;i<problemas.length;i++){
+                cadena = cadena + problemas[i].textContent + ","
+            }
+            localStorage.setItem("problemas", cadena)
+        }
+        function cargaPagina {
+            let cadenaTareas = localStorage.getItem("problemas")
+            if (cadenaTareas!=null) {
+                var elemento = document.createElement("li");
+                var lista = document.getElementById("lista");
+                elemento.textContent = cadenaTareas;
+                
+            }
+        }
+    </script>
+</body>
+</html>

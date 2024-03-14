@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dieta</title>
+</head>
+<body onload="ultimo()">
+    <input type="text" id="input" placeholder="Introduce tu peso aqui">
+    <p id="mensaje"></p>
+    <button onclick="guardar()"></button>
+
+    <script>
+        function ultimo(){
+            var ultimoPeso = localStorage.getItem("peso")
+            alert("Tu ultimo pero era" +  "peso")
+        }
+        function guardar() {
+            var peso = document.getElementById("input").value
+            localStorage.setItem("peso", peso)
+            if (peso<localStorage.getItem("peso")){
+
+            }
+            
+        }
+    </script>
+</body>
+</html>
