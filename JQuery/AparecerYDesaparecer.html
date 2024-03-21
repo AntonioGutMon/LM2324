@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouseenter y mouseleave</title>
+    <script src="jquery.js"></script>
+    <script>
+        
+        /*  Si quiero que desaparezca la caja
+        $(document).ready(function () {
+            $("#caja").mouseenter(function(){
+                $(this).hide();
+
+            $("#caja").mouseleave(function(){
+                $(this).show();
+            });
+            });
+        });
+        */
+
+
+
+
+
+        /* Si quiero que desaparezca el texto pero no la caja*/
+        $(document).ready(function () {
+            $("div").mouseenter(function(){
+                $("#texto").hide();
+
+            $("div").mouseleave(function(){
+                $("#texto").show();
+            });
+            });
+        });
+        
+    </script>
+    <style>
+        #caja{
+            background-color: red;
+            width: 300px;
+            height: 300px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="caja">
+        <p id="texto">asdadadad</p>
+    </div>
+</body>
+</html>

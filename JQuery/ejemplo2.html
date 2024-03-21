@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <script src="jquery.js"></script>
+    <script>
+
+/*2. En base al ejercicio anterior vamos a identificar el encabezado mediante un id y los
+párrafos que ocupan una posición par pertenecerán a la clase “pares”. Realiza las
+modificaciones pertinentes para que los botones “Ocultar” y “Aparecer” utilicen los
+selectores convenientemente, para el encabezado su identificador y para los
+párrafos pares su clase de CSS.*/
+
+        $(document).ready(function () {
+            $("#desaparecer").click(function(){
+                $("#encabezado, .pares").hide();
+            });
+            $("#aparecer").click(function(){
+                $("#encabezado, .pares").show();
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <h1 id="encabezado">Encabezado</h1>
+    <p>Parrafo 1</p>
+    <p class="pares">Parrafo 2</p>
+    <p>Parrafo 3</p>
+    <p class="pares">Parrafo 4</p>
+    <p>Parrafo 5</p>
+    <p class="pares">Parrafo 6</p>
+    <button id="desaparecer">Ocultar</button>
+    <button id="aparecer">Aparecer</button>
+</body>
+</html>

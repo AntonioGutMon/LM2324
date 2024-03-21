@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide</title>
+    <script src="jquery.js"></script>
+    <script>
+        /* Hacer desaparecer */
+        $(document).ready(function(){
+            $("p").click(function(){
+                $(this).hide();
+            });
+        });
+
+        $(document).ready(function(){
+            $("h1").click(function(){
+                $(this).hide();
+            });
+        }); 
+        
+
+
+
+
+
+
+        /* Hacer desaparecer con solo uno
+        $(document).ready(function(){
+            $("p, h1").click(function(){
+                $(this).hide();
+            });
+        }); 
+        */
+
+
+
+
+
+
+
+        /* Hacer desaparecer con id
+        $(document).ready(function(){
+            $("#segundo").click(function(){
+                $(this).hide();
+            });
+        });
+        */
+
+
+        
+
+
+        /* Hacer desaparecer con class
+        $(document).ready(function(){
+            $(".a").click(function(){
+                $(this).hide();
+            });
+        });
+        */
+
+        /*Poner el document ready para que interprete todas las 
+        lineas y no de problema (esto lo va a hacer automatico el vs con "jqdocready")*/
+        
+        
+    </script>
+</head>
+<body>
+    <h1>GOGOGOGO</h1>
+    <p class="a">gogogogo</p>
+    <p class="a" id="segundo">gogogogogogogogo</p>
+</body>
+</html>

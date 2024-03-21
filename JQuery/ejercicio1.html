@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <script src="jquery.js"></script>
+    <script>
+
+/*1. Realiza un documento HTML que presente un encabezado de nivel 1, varios
+párrafos y un par de botones con el texto “Ocultar” y “Aparecer”. Cuando el
+usuario haga clic en ellos el encabezado y los párrafos desaparecerán o aparecerán.*/
+
+        $(document).ready(function () {
+            $("#desaparecer").click(function(){
+                $("h1, p").hide();
+            });
+            $("#aparecer").click(function(){
+                $("h1, p").show();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Encabezado</h1>
+    <p>Parrafo 1</p>
+    <p>Parrafo 2</p>
+    <p>Parrafo 3</p>
+    <button id="desaparecer">Ocultar</button>
+    <button id="aparecer">Aparecer</button>
+</body>
+</html>
