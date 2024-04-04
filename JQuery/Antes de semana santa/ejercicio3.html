@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $("#mas").click(function(){
+                $("#head1,.pares").css("font-size", "150px");
+            })
+            $("#menos").click(function(){
+                $("#head1,.pares").css("font-size", "50px");
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1 id="head1">Esto es un h1</h1>
+    <p>P1</p>
+    <p class="pares">P2</p>
+    <p>P3</p>
+    <button id="mas">Más grande</button>
+    <button id="menos">Menos grande</button>
+</body>
+</html>
