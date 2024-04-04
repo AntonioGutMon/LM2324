@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 1</title>
+    <script src="jquery.js"></script>
+    <style>
+        #caja{
+            background-color: yellow;
+            height: 200px;
+            width: 500px;
+        }
+        div{
+            text-align: center;
+
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#desaparecer").click(function(){
+                $("#caja").empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="caja">
+        <p>Texto centrado</p> 
+    </div><br>
+        <button id="desaparecer">Desaparecer texto</button>
+</body>
+</html>
