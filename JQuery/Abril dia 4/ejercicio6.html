@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 1</title>
+    <script src="jquery.js"></script>
+    <style>
+        #table{
+            border: solid 1px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#enc").html(
+                $("h1").length
+            );
+            $("#pa").html(
+                $("p").length
+            );
+        });
+    </script>
+</head>
+<body>
+    <h1>aaaaaaaaa</h1>
+    <h1>aaaaaaaaa</h1>
+    <p>aaaaaaaaaaa</p>
+    <p>aaaaaaaaaaa</p>
+    <p>aaaaaaaaaaa</p>
+    <p>aaaaaaaaaaa</p>
+    <p>aaaaaaaaaaa</p>
+    <p>aaaaaaaaaaa</p>
+    <p>aaaaaaaaaaa</p>
+    <p>aaaaaaaaaaa</p>
+    <table id="table">
+        <tr>
+        <th>Encabezados</th>
+        <th>Párrafos</th>
+        </tr>
+        <tr>
+            <td id="enc">X</td>
+            <td id="pa">X</td>
+        </tr>
+    </table>
+</body>
+</html>

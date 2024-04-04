@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 1</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#boton1").click(function(){
+                alert("El html del encabezado es:" + ' ' + $("h1").html())
+            })
+            $("#boton2").click(function(){
+                alert("El html de la imagen es:" + ' ' + $("img").attr("src"))
+            })
+            $("#boton3").click(function(){
+                alert("El html del parrafo es:" + ' ' + $("#primero").html())
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>GOGOGOGO</h1>
+    <p id="primero">aaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    <p>a</p>
+    <p>a</p>
+    <img src="foto.jfif" alt=""> <br><br>
+    <button id="boton1">Encabezado</button>
+    <button id="boton2">imagen</button>
+    <button id="boton3">Primer parrafo</button>
+</body>
+</html>

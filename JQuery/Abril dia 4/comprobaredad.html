@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 1</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#boton").click(function(){
+                let edad = $("#caja").val()
+                let texto = "";
+                if (edad >= 18)
+                    texto = "Es mayor de edad";
+                else
+                    texto = "Es menor de edad";
+                alert(texto);
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>Introduce tu edad</h1>
+    <input type="text" id="caja">
+    <button id="boton">Obtener valor</button>
+</body>
+</html>
