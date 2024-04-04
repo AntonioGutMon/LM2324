@@ -4,8 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery 1</title>
+    <script src="jquery.js"></script>
+    <style>
+        #roja{
+            background-color: red;
+            width: 200px;
+            height: 200px;
+        }
+        #azul{
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+        }
+        #verde{
+            background-color: green;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        /*Vemos como al poner 2000 son 2 segundos que tarda en aparecer o desaparecer*/
+        $(document).ready(function () {
+            $("#aparecer").click(function(){
+                $("#roja").fadeIn(2000);
+                $("#azul").fadeIn(2000);
+                $("#verde").fadeIn(2000);
+            })
+            $("#desaparecer").click(function(){
+                $("#roja").fadeOut(2000);
+                $("#azul").fadeOut(2000);
+                $("#verde").fadeOut(2000);
+            })
+            $("#alternar").click(function(){
+                $("#roja").fadeToggle();
+                $("#azul").fadeToggle();
+                $("#verde").fadeToggle();
+            })
+        });
+    </script>
 </head>
 <body>
-    
+    <div id="roja"></div>
+    <div id="azul"></div>
+    <div id="verde"></div>
+    <button id="aparecer">FadeIn</button>
+    <button id="desaparecer">FadeOut</button>
+    <button id="alternar">FadeToggle</button>
 </body>
 </html>
