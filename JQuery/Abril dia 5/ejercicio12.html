@@ -13,20 +13,25 @@
         }
         div{
             text-align: center;
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quitar{
+            visibility: hidden;
         }
     </style>
     <script>
         $(document).ready(function () {
             $("#alternar").click(function(){
-                $("#texto").fadeToggle();
+                $("p").toggleClass("quitar");
             });
         });
     </script>
 </head>
 <body>
     <div id="caja">
-        <p id="texto">Texto centrado</p> 
+        <p>Texto centrado</p> 
     </div><br>
         <button id="alternar">Aparecer/Desaparecer texto</button>
 </body>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src="jquery.js"></script>
+    <style>
+        input{
+            margin: 5px 5px;
+        }
+        span{
+            color: red;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function(){
+
+
+
+                /*Nombre*/
+                let nombre = $("#nombre").val()
+                if (nombre == ""){
+                    $("#errorNombre").text("Rellenar el campo nombre")
+                }
+                else{
+                    $("#errorNombre").text("")
+                }
+
+
+
+
+
+                /*Apellidos*/
+                let apellidos = $("#apellidos").val()
+                if (apellidos == ""){
+                    $("#errorApellidos").text("Rellenar el campo nombre")
+                }
+                else{
+                    $("#errorApellidos").text("")
+                }
+
+
+
+
+
+                /*Correo*/
+                let correo = $("#correo").val()
+                let patronCorreo = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
+                if (correo == ""){  /*El correo es valido*/
+                    $("#errorCorreo").text("Rellena el campo correo")
+                }
+                else{  /*El correo no es valido*/
+                    if (!patronCorreo.test(correo)){  /*El correo no es valido porque no cumple con el formato*/
+                        $("#errorCorreo").text("Formato del correo no valido")
+                    }
+                    else{  /*El correo no es valido porque no cumple con el formato*/
+                        $("#errorCorreo").text("")
+                    }
+                }
+
+
+
+
+
+                /*Fecha Nacimiento*/
+                let fnac = $("#fnac").val()
+                if (fnac == ""){
+                    $("#errorFnac").text("Rellena el campo fecha de nacimiento")
+                }
+                else{
+                    $("#errorFnac").text("")
+                }
+
+
+
+
+
+                /*DNI*/
+                let dni = $("#dni").val()
+                if (dni == ""){
+                    $("#errorDni").text("Rellena el campo DNI")
+                }
+                else{
+                    $("#errorDni").text("")
+                }
+
+
+
+
+
+                /*Contraseñas*/
+                let password1 = $("#password1").val()
+                let patronContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/
+                let password2 = $("#password2").val()
+                if (password1 != password2){
+                    $("#errorContrasena1").text("Las contraseñas no son iguales")
+                    $("#errorContrasena2").text("Las contraseñas no son iguales")
+                }
+                else{
+                    if (!patronContrasena.test(password1)){
+                        $("#errorContrasena1").text("La contraseña no cumple con los requisitos")
+                        $("#errorContrasena2").text("La contraseña no cumple con los requisitos")
+                    }
+                    else{
+                        $("#errorContrasena1").text("")
+                        $("#errorContrasena2").text("")
+                    }
+                }
+
+
+        
+                /*Privacidad*/
+                let privacidad = $("#privacidad").is(":checked")
+                if (!privacidad){
+                    $("#errorPrivacidad").text("Debe aceptar la politica de privacidad")
+                }
+                else{
+                    $("#errorPrivacidad").text("")
+                }
+
+
+
+                
+            })
+        });
+    </script>
+</head>
+<body>
+    <label for="">Nombre:</label>
+    <input type="text" id="nombre" required><span id="errorNombre"></span><br>
+    <label for="">Apellidos:</label>
+    <input type="text" id="apellidos" required><span id="errorApellidos"></span><br>
+    <label for="">Correo:</label>
+    <input type="email" id="correo" required><span id="errorCorreo"></span><br>
+    <label for="">Fecha de nacimiento:</label>
+    <input type="date" id="fnac"><span id="errorFnac"></span><br>
+    <label for="">DNI:</label>
+    <input type="text" id="dni" required><span id="errorDni"></span><br>
+    <label for="">Contraseña:</label>
+    <input type="password" id="password1" required><span id="errorContrasena1"></span><br>
+    <label for="">Confirmar contraseña:</label>
+    <input type="password" id="password2" required><span id="errorContrasena2"></span><br>
+    <label for="">Acepto la politica de privacidad:</label>
+    <input type="checkbox" id="privacidad" required><span id="errorPrivacidad"></span><br><br>
+    <button>Confirmar</button>
+</body>
+</html>
