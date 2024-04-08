@@ -79,11 +79,21 @@
 
                 /*DNI*/
                 let dni = $("#dni").val()
-                if (dni == ""){
-                    $("#errorDni").text("Rellena el campo DNI")
+                let letraDNI = dni.substring(8, 9);
+                let numDNI = parseInt(dni.substring(0, 8));
+                let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T']
+                let letraCorrecta = letras[numDNI % 23];
+                let patronDni = /\d{8}[a-z A-Z]/
+                if (!patronDni.test(dni)){
+                    $("#errorDni").text("Introduce algo que sea un DNI")
                 }
                 else{
-                    $("#errorDni").text("")
+                    if (letraDNI != letraCorrecta){
+                        $("#errorDni").text("La letra o numero del DNI es incorrecto/a")
+                    }
+                    else{
+                        $("#errorDni").text("")
+                    }
                 }
 
 
@@ -135,7 +145,7 @@
     <label for="">Correo:</label>
     <input type="email" id="correo" required><span id="errorCorreo"></span><br>
     <label for="">Fecha de nacimiento:</label>
-    <input type="date" id="fnac"><span id="errorFnac"></span><br>
+    <input type="date" id="fnac" required><span id="errorFnac"></span><br>
     <label for="">DNI:</label>
     <input type="text" id="dni" required><span id="errorDni"></span><br>
     <label for="">Contraseña:</label>
