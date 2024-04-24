@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX 3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <p id="parrafo">AA</p>
+    <script>
+        $(document).ready(function () {
+            $.when($.get("/lite/1.json"), $.get("/lite/2.json")).then(function(a,b){
+                let obj1 = a[0];
+                let obj2 = b[0];
+                let mensaje=obj1.nombre + ' ' + obj1.apellidos + ' tiene el rol de ' + obj2.rol;
+            $("#parrafo").text(mensaje);
+            });
+        });
+    </script>
+</body>
+</html>
