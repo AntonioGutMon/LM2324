@@ -15,10 +15,12 @@
         <!-- Por simplificar el archivo lo llamaremos ejemplo.json y lo ubicaremos en el propio servidor -->
     </div>
     <script>
-        $.get('ejemplo.json').done(function(e){
-            console.log(e.Mensaje);
-        }).fail(function (e){
-            console.log("El archivo no se encuentra en el servidor");
+        $(document).ready(function () {
+            $.get("ejemplo.json").done(function(datos){
+                console.log(datos['Mensaje'])
+            }).fail(function(){
+                console.log("El archivo no se encuentra en el servidor")
+            })
         });
         /*
         $.getJSON('ejemplo.json').done(function(e){
