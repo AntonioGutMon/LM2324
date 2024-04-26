@@ -16,8 +16,15 @@
     <script>
       /* Completar el código jQuery aquí */
       $(document).ready(function () {
-        $.get("https://www.el-tiempo.net/api/json/v2/provincias/41").done(function(tiempo){
-          $("#objetivo").text(tiempo['ciudades'])
+        let apikey = "3460ed825dbaeb140ec83e85cabd4b83"
+        let url = "https://api.openweathermap.org/data/2.5/weather?"
+        let latitud = "37.38283"
+        let longitud = "-5.97317"
+        let urlcompleta = url + "&lat=" + latitud + "&lon=" + longitud + "&units=metric&appid=" + apikey
+        $.get(urlcompleta).done(function(datos){
+          $("#objetivo").text("La temperatura en Sevilla es de " + datos.main.temp + " ºC")
+        }).fail(function(){
+          $("#objetivo").text("Ha ocurrido un error en la llamada al servidor")
         })
       });
     </script>
