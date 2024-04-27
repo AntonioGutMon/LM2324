@@ -49,15 +49,15 @@
         </div>
     </div>
     <script>
-        /* Aquí deberías escribir tu código de jQuery */
+    /* Aquí deberías escribir tu código de jQuery */
     $(document).ready(function () {
-        let api = "https://randomuser.me/api/"
-        $.get("api").done(function(){
-            $("#btn-generico").click(function(datos){
-                $("#fullname").text(datos.results.name)
-            }) 
-        }).fail(function(){
-            $(".fullname").text("Error")
+        $("#btn-generico").click(function(){
+            let api = "https://randomuser.me/api/" 
+            $.get(api).done(function(datos){
+                $("#fullname").text(datos.results.gender)
+            }).fail(function(){
+                $("#fullname").text("Error")
+            })
         })
     });
     </script>
