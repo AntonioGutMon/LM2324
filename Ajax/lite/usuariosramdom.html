@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <!-- Aquí deberíamos enlazar a jQuery (usa URL alojada en Internet)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style>
         body {
             background-color: rgb(240, 239, 239);
@@ -34,7 +35,7 @@
             </div>
             <div class="card-body">
                 <div class='usuario'>
-                    <img src='' class='circle'>
+                    <img src='' id="img" class='circle'>
                     <p id='fullname'></p>
                     <p id='username'></p>
                     <p id='email'></p>
@@ -52,9 +53,19 @@
     /* Aquí deberías escribir tu código de jQuery */
     $(document).ready(function () {
         $("#btn-generico").click(function(){
-            let api = "https://randomuser.me/api/" 
+            let api = "https://randomuser.me/api/";
             $.get(api).done(function(datos){
-                $("#fullname").text(datos.results.gender)
+                let img = datos.results[0].picture.large
+                let fullname = datos.results[0].name.first + " " + datos.results[0].name.last;
+                let username = datos.results[0].login.username
+                let email = datos.results[0].email
+                let city = datos.results[0].location.city
+                $("#fullname").text(fullname);
+                $("#username").text(username);
+                $("#email").text(email);
+                $("#city").text(city);
+                $("#city").text(city);
+                $("img").replaceWith('<img width="90" src="'+img+'" class="circle">')
             }).fail(function(){
                 $("#fullname").text("Error")
             })
