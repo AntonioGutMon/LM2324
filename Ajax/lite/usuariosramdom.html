@@ -89,6 +89,8 @@
                 let email = datos.results[0].email
                 let city = datos.results[0].location.city
 
+                $("br").css("display", "none");
+
                 $("#fullname").text(fullname);
                 $("#username").text(username);
                 $("#email").text(email);
@@ -138,6 +140,8 @@
                 let username = datos.results[0].login.username
                 let email = datos.results[0].email
                 let city = datos.results[0].location.city
+
+                $("br").css("display", "none");
 
                 $("#fullname").text(fullname);
                 $("#username").text(username);
