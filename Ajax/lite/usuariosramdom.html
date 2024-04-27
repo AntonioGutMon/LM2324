@@ -71,6 +71,27 @@
             })
         })
     });
+
+    $(document).ready(function () {
+        $("#btn-espanol").click(function(){
+            let api = "https://randomuser.me/api/?nat=es";
+            $.get(api).done(function(datos){
+                let img = datos.results[0].picture.large
+                let fullname = datos.results[0].name.first + " " + datos.results[0].name.last;
+                let username = datos.results[0].login.username
+                let email = datos.results[0].email
+                let city = datos.results[0].location.city
+                $("#fullname").text(fullname);
+                $("#username").text(username);
+                $("#email").text(email);
+                $("#city").text(city);
+                $("#city").text(city);
+                $("img").replaceWith('<img width="90" src="'+img+'" class="circle">')
+            }).fail(function(){
+                $("#fullname").text("Error")
+            })
+        })
+    });
     </script>
 </body>
 
