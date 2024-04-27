@@ -24,6 +24,11 @@
         .circle {
             border-radius: 50%;
         }
+
+        p{
+            margin: 0px 0px 0px 0px;
+        }
+        
     </style>
 </head>
 
@@ -35,11 +40,33 @@
             </div>
             <div class="card-body">
                 <div class='usuario'>
+
                     <img src='' id="img" class='circle'>
                     <p id='fullname'></p>
                     <p id='username'></p>
                     <p id='email'></p>
-                    <p id='city'></p>
+                    <p id='city'></p><br>
+
+                    <p id='fullname1'></p>
+                    <p id='username1'></p>
+                    <p id='email1'></p>
+                    <p id='city1'></p><br>
+
+                    <p id='fullname2'></p>
+                    <p id='username2'></p>
+                    <p id='email2'></p>
+                    <p id='city2'></p><br>
+
+                    <p id='fullname3'></p>
+                    <p id='username3'></p>
+                    <p id='email3'></p>
+                    <p id='city3'></p><br>
+
+                    <p id='fullname4'></p>
+                    <p id='username4'></p>
+                    <p id='email4'></p>
+                    <p id='city4'></p><br>
+
                     <div id="card-footer">
                         <button id="btn-generico" class='btn btn-primary'>Genérico</button>
                         <button id="btn-espanol" class='btn btn-primary'>Español</button>
@@ -55,38 +82,164 @@
         $("#btn-generico").click(function(){
             let api = "https://randomuser.me/api/";
             $.get(api).done(function(datos){
+
                 let img = datos.results[0].picture.large
                 let fullname = datos.results[0].name.first + " " + datos.results[0].name.last;
                 let username = datos.results[0].login.username
                 let email = datos.results[0].email
                 let city = datos.results[0].location.city
+
                 $("#fullname").text(fullname);
                 $("#username").text(username);
                 $("#email").text(email);
                 $("#city").text(city);
                 $("#city").text(city);
                 $("img").replaceWith('<img width="90" src="'+img+'" class="circle">')
+
+                $("#fullname1").text("");
+                $("#username1").text("");
+                $("#email1").text("");
+                $("#city1").text("");
+                $("#city1").text("");
+
+                $("#fullname2").text("");
+                $("#username2").text("");
+                $("#email2").text("");
+                $("#city2").text("");
+                $("#city2").text("");
+
+                $("#fullname3").text("");
+                $("#username3").text("");
+                $("#email3").text("");
+                $("#city3").text("");
+                $("#city3").text("");
+
+                $("#fullname4").text("");
+                $("#username4").text("");
+                $("#email4").text("");
+                $("#city4").text("");
+                $("#city4").text("");
+
             }).fail(function(){
                 $("#fullname").text("Error")
             })
         })
     });
 
+
+
     $(document).ready(function () {
         $("#btn-espanol").click(function(){
             let api = "https://randomuser.me/api/?nat=es";
             $.get(api).done(function(datos){
+
                 let img = datos.results[0].picture.large
                 let fullname = datos.results[0].name.first + " " + datos.results[0].name.last;
                 let username = datos.results[0].login.username
                 let email = datos.results[0].email
                 let city = datos.results[0].location.city
+
                 $("#fullname").text(fullname);
                 $("#username").text(username);
                 $("#email").text(email);
                 $("#city").text(city);
                 $("#city").text(city);
                 $("img").replaceWith('<img width="90" src="'+img+'" class="circle">')
+
+                $("#fullname1").text("");
+                $("#username1").text("");
+                $("#email1").text("");
+                $("#city1").text("");
+                $("#city1").text("");
+
+                $("#fullname2").text("");
+                $("#username2").text("");
+                $("#email2").text("");
+                $("#city2").text("");
+                $("#city2").text("");
+
+                $("#fullname3").text("");
+                $("#username3").text("");
+                $("#email3").text("");
+                $("#city3").text("");
+                $("#city3").text("");
+
+                $("#fullname4").text("");
+                $("#username4").text("");
+                $("#email4").text("");
+                $("#city4").text("");
+                $("#city4").text("");
+
+            }).fail(function(){
+                $("#fullname").text("Error")
+            })
+        })
+    });
+
+
+
+    $(document).ready(function () {
+        $("#btn-varios").click(function(){
+            let api = "https://randomuser.me/api/?&results=5&nat=es";
+            $.get(api).done(function(datos){
+
+                let img = "multiple.png"
+                let fullname = datos.results[0].name.first + " " + datos.results[0].name.last;
+                let username = datos.results[0].login.username
+                let email = datos.results[0].email
+                let city = datos.results[0].location.city
+
+                let fullname1 = datos.results[1].name.first + " " + datos.results[0].name.last;
+                let username1 = datos.results[1].login.username
+                let email1 = datos.results[1].email
+                let city1 = datos.results[1].location.city
+
+                let fullname2 = datos.results[2].name.first + " " + datos.results[0].name.last;
+                let username2 = datos.results[2].login.username
+                let email2 = datos.results[2].email
+                let city2 = datos.results[2].location.city
+
+                let fullname3 = datos.results[3].name.first + " " + datos.results[0].name.last;
+                let username3 = datos.results[3].login.username
+                let email3 = datos.results[3].email
+                let city3 = datos.results[3].location.city
+
+                let fullname4 = datos.results[4].name.first + " " + datos.results[0].name.last;
+                let username4 = datos.results[4].login.username
+                let email4 = datos.results[4].email
+                let city4 = datos.results[4].location.city
+
+                $("img").replaceWith('<img width="90" src="'+img+'">')
+                $("#fullname").text(fullname);
+                $("#username").text(username);
+                $("#email").text(email);
+                $("#city").text(city);
+                $("#city").text(city);
+        
+                $("#fullname1").text(fullname1);
+                $("#username1").text(username1);
+                $("#email1").text(email1);
+                $("#city1").text(city1);
+                $("#city1").text(city1);
+
+                $("#fullname2").text(fullname2);
+                $("#username2").text(username2);
+                $("#email2").text(email2);
+                $("#city2").text(city2);
+                $("#city2").text(city2);
+
+                $("#fullname3").text(fullname3);
+                $("#username3").text(username3);
+                $("#email3").text(email3);
+                $("#city3").text(city3);
+                $("#city3").text(city3);
+
+                $("#fullname4").text(fullname4);
+                $("#username4").text(username4);
+                $("#email4").text(email4);
+                $("#city4").text(city4);
+                $("#city4").text(city4);
+
             }).fail(function(){
                 $("#fullname").text("Error")
             })
