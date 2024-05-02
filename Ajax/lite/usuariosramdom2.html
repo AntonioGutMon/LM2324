@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios aleatorios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- Aquí deberíamos enlazar a jQuery (usa URL alojada en Internet)-->
+    <style>
+        body {
+            background-color: rgb(240, 239, 239);
+        }
+
+        #flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <div id='flex' class='card'>
+            <div class="card-header">
+                <h3 class="card-title">Generador de usuarios</h3>
+            </div>
+            <div class="card-body">
+                <div class='usuario'>
+                    <img src='' class='circle'>
+                    <p class='fullname'></p>
+                    <p class='username'></p>
+                    <p class='email'></p>
+                    <p class='city'></p>
+                    <div class="card-footer">
+                        <button id="btn-generico" class='btn btn-primary'>Genérico</button>
+                        <button id="btn-espanol" class='btn btn-primary'>Español</button>
+                        <button id="btn-varios" class='btn btn-primary'>5 Españoles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+        
+            /*Función para el botón "Genérico"*/
+            $("#btn-generico").click(function(){ 
+                
+                $.ajax({
+                    url: 'https://randomuser.me/api/',
+                    dataType: 'json',
+                    success: function(datos){ 
+                        let img = datos.results[0].picture.medium;
+                        let fullname = datos.results[0].name.first + " " + datos.results[0].name.last;
+                        let username = datos.results[0].login.username;
+                        let email = datos.results[0].email;
+                        let city = datos.results[0].location.city;
+
+                        $("img").attr("src",img);
+                        $(".fullname").text(fullname);
+                        $(".username").text(username);
+                        $(".email").text(email);
+                        $(".city").text(city);
+                    }
+                });
+            }); 
+
+            /*Función para el botón "Español"*/
+            $("#btn-espanol").click(function(){ 
+                
+                $.ajax({
+                    url: 'https://randomuser.me/api/?nat=es',
+                    dataType: 'json',
+                    success: function(datos){   
+                        let img = datos.results[0].picture.medium;
+                        let fullname = datos.results[0].name.first + " " + datos.results[0].name.last;
+                        let username = datos.results[0].login.username;
+                        let email = datos.results[0].email;
+                        let city = datos.results[0].location.city;
+
+                        $("img").attr("src",img);
+                        $(".fullname").text(fullname);
+                        $(".username").text(username);
+                        $(".email").text(email);
+                        $(".city").text(city);
+                    }
+                });
+            }); 
+
+            /*Función para el botón "5 Españoles"*/
+            $("#btn-varios").click(function(){ 
+
+                $.ajax({
+                    url: 'https://randomuser.me/api/?results=5&nat=es&page=3',
+                    dataType: 'json',
+                    success: function(datos){
+                        
+                        $("img").attr("src","multiple.png");
+                        $("p").empty();
+                       
+                        for(var i = 0; i < datos.results.length; i++){
+
+                            let fullname = datos.results[i].name.first + " " + datos.results[i].name.last;
+                            $(".fullname").append(fullname + "</br>");
+                            let username = datos.results[i].login.username;
+                            $(".username").append(username + "</br>");
+                            let email = datos.results[i].email;
+                            $(".email").append(email + "</br>");
+                            let city = datos.results[i].location.city;
+                            $(".city").append(city + "</br>");
+                        }     
+                    }  
+                });
+            }); 
+        });
+    </script>
+</body>
+</html>
