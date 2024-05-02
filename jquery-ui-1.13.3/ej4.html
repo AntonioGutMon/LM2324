@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#confirmar" ).dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                "Borrar todo": function() {
+                    $( this ).dialog( "close" );
+                },
+                Cancelar: function() {
+                    $( this ).dialog( "close" );
+                }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Ejemplo de modal</h1>
+    <div id="confirmar" title="Borrar todos los datos">
+        <p>Quieres borrar todos los datos del ordenador, se han encontrado amenazas</p>
+    </div>
+</body>
+</html>
