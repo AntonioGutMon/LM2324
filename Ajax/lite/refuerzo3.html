@@ -7,13 +7,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Imagen Ramdom</h1>
-    <button id="btn">Foto aleatoria</button><br><br>
-    <p id="foto"></p>
+    <h1>Buscar peliculas</h1>
+    <input type="text" id="texto">
+    <button id="btn">Buscar pelicula</button><br><br>
+    <p id="resultado"></p>
 </body>
 <script>
     $(document).ready(function () {
-        
+        $("#btn").click(function(){
+            let titulo = $("#texto").val()
+            let url = "https://www.omdbapi.com/?apikey=2a28ce66&t=" + titulo
+            $.get(url).done(function(datos){
+                $("#resultado").empty()
+                $("#resultado").append("<p>Title: " + datos.Title + "</p>")
+                $("#resultado").append("<p>Year: " + datos.Year + "</p>")
+                $("#resultado").append("<p>Rated: " + datos.Rated + "</p>")
+                $("#resultado").append("<p>Released: " + datos.Released + "</p>")
+                $("#resultado").append("<p>Runtime: " + datos.Runtime + "</p>")
+                $("#resultado").append("<p>Genre: " + datos.Genre + "</p>")
+                $("#resultado").append("<p>Director: " + datos.Director + "</p>")
+                $("#resultado").append("<p>Writer: " + datos.Writer + "</p>")
+                $("#resultado").append("<p>Actors: " + datos.Actors + "</p>")
+            }).fail(function(){
+                console.log("Error")
+            })
+        })
     });
 </script>
 </html>
