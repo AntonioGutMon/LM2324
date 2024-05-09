@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refuerzo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Imagen Ramdom</h1>
+    <button id="btn">Foto aleatoria</button><br><br>
+    <p id="foto"></p>
+</body>
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function(){
+            let url = "https://api.unsplash.com/photos/random?client_id=owjUHnYZjQ-fK_X8nogwIrmIhVpbOLTe9egVqX7GYmw"
+            $.get(url).done(function(datos){
+                let img = datos.urls.small
+                $("#foto").empty()
+                $("#foto").append('<img src="' + img + '">')
+            }).fail(function(){
+                console.log("Error")
+            })
+        })
+    });
+</script>
+</html>
