@@ -2,5 +2,6 @@
     "files.defaultLanguage": "es",
     "emmet.includeLanguages": {
         "lang": "es"
-    }
+    },
+    "livePreview.defaultPreviewPath": "/JQuery/Examen modelo 2/formulario.html"
 }

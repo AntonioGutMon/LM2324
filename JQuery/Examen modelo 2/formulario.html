@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src="jquery.js"></script>
+    <style>
+        input{
+            margin: 5px 5px;
+        }
+        span{
+            color: red;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function(){
+
+
+
+                /*Nombre*/
+                let nombre = $("#nombre").val()
+                if (nombre == ""){
+                    $("#errorNombre").text("Rellenar el campo nombre")
+                }
+                else{
+                    $("#errorNombre").text("")
+                }
+
+
+
+
+
+                /*Apellido1*/
+                let apellido1 = $("#apellido1").val()
+                if (apellido1 == ""){
+                    $("#errorApellido1").text("Rellenar el campo apellido1")
+                }
+                else{
+                    $("#errorApellido1").text("")
+                }
+
+
+
+
+                /*Apellido2*/
+                let apellido2 = $("#apellido2").val()
+                if (apellido2 == ""){
+                    $("#errorApellido2").text("Rellenar el campo apellido2")
+                }
+                else{
+                    $("#errorApellido2").text("")
+                }
+
+
+
+                /*DNI*/
+                let dni = $("#dni").val()
+                let letraDNI = dni.substring(8, 9);
+                let numDNI = parseInt(dni.substring(0, 8));
+                let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T']
+                let letraCorrecta = letras[numDNI % 23];
+                let patronDni = /\d{8}[a-z A-Z]/
+                if (!patronDni.test(dni)){
+                    $("#errorDni").text("Introduce algo que sea un DNI")
+                }
+                else{
+                    if (letraDNI != letraCorrecta){
+                        $("#errorDni").text("La letra o numero del DNI es incorrecto/a")
+                    }
+                    else{
+                        $("#errorDni").text("")
+                    }
+                }
+
+
+
+
+
+                /*Correo*/
+                let correo = $("#correo").val()
+                let patronCorreo = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
+                if (correo == ""){  /*El correo es valido*/
+                    $("#errorCorreo").text("Rellena el campo correo")
+                }
+                else{  /*El correo no es valido*/
+                    if (!patronCorreo.test(correo)){  /*El correo no es valido porque no cumple con el formato*/
+                        $("#errorCorreo").text("Formato del correo no valido")
+                    }
+                    else{  /*El correo no es valido porque no cumple con el formato*/
+                        $("#errorCorreo").text("")
+                    }
+                }
+
+
+
+
+
+
+                /*Contraseñas*/
+                let password1 = $("#password1").val()
+                let patronContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/
+                let password2 = $("#password2").val()
+                if (password1 != password2){
+                    $("#errorContrasena1").text("Las contraseñas no son iguales")
+                    $("#errorContrasena2").text("Las contraseñas no son iguales")
+                }
+                else{
+                    if (!patronContrasena.test(password1)){
+                        $("#errorContrasena1").text("La contraseña no cumple con los requisitos")
+                        $("#errorContrasena2").text("La contraseña no cumple con los requisitos")
+                    }
+                    else{
+                        $("#errorContrasena1").text("")
+                        $("#errorContrasena2").text("")
+                    }
+                }
+
+
+                 /*Fecha Nacimiento*/
+                 let fnac = $("#fnac").val()
+                if (fnac == ""){
+                    $("#errorFnac").text("Rellena el campo fecha de nacimiento")
+                }
+                else{
+                    $("#errorFnac").text("")
+                }
+
+
+
+                /*Fecha Nacimiento*/
+                let desc = $("#desc").val()
+                if (desc == ""){
+                    $("#errorDesc").text("Rellena el campo fecha de descripcion")
+                }
+                else{
+                    $("#errorDesc").text("")
+                }
+
+
+
+        
+                /*Privacidad*/
+                let privacidad = $("#privacidad").is(":checked")
+                if (!privacidad){
+                    $("#errorPrivacidad").text("Debe aceptar la politica de privacidad")
+                }
+                else{
+                    $("#errorPrivacidad").text("")
+                }
+
+
+
+                
+            })
+        });
+    </script>
+</head>
+<body>
+    <label for="">Nombre:</label>
+    <input type="text" id="nombre" required><span id="errorNombre"></span><br>
+
+    <label for="">Apellido1:</label>
+    <input type="text" id="apellido1" required><span id="errorApellido1"></span><br>
+
+    <label for="">Apellido2:</label>
+    <input type="text" id="apellido2" required><span id="errorApellido2"></span><br>
+
+    <label for="">DNI:</label>
+    <input type="text" id="dni" required><span id="errorDni"></span><br>
+
+    <label for="">Correo:</label>
+    <input type="email" id="correo" required><span id="errorCorreo"></span><br>
+
+    <label for="">Contraseña:</label>
+    <input type="password" id="password1" required><span id="errorContrasena1"></span><br>
+
+    <label for="">Confirmar contraseña:</label>
+    <input type="password" id="password2" required><span id="errorContrasena2"></span><br>
+
+    
+
+    <label for="">Fecha de nacimiento:</label>
+    <input type="date" id="fnac" required><span id="errorFnac"></span><br>
+
+    <label for="">Descripcion:</label>
+    <input type="text" id="desc" required><span id="errorDesc"></span><br>
+
+    <label for="">Acepto la politica de privacidad:</label>
+    <input type="checkbox" id="privacidad" required><span id="errorPrivacidad"></span><br><br>
+
+
+    <button>Confirmar</button>
+</body>
+</html>
