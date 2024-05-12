@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
-    <script src="jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         input{
             margin: 5px 5px;
@@ -151,7 +151,27 @@
                 }
 
 
+                //Poner el nombre de usuario
 
+                let n = $("#nombre").val()
+                let letranombre = n.substring(0,1)
+
+                let a1 = $("#apellido1").val()
+                let letraapellido1 = a1.substring(0,3)
+
+                let a2 = $("#apellido2").val()
+                let letraapellido2 = a2.substring(0,3)
+
+                let d = $("#dni").val()
+                let ndni = d.substring(5,8)
+
+
+                let cadenausuario = letranombre + letraapellido1 + letraapellido2 + ndni
+                let lower = cadenausuario.toLowerCase();
+
+                $("#usuario").empty()
+                $("#usuario").text("Nombre de usuario: ")
+                $("#usuario").append(lower)
                 
             })
         });
@@ -179,8 +199,6 @@
     <label for="">Confirmar contraseña:</label>
     <input type="password" id="password2" required><span id="errorContrasena2"></span><br>
 
-    
-
     <label for="">Fecha de nacimiento:</label>
     <input type="date" id="fnac" required><span id="errorFnac"></span><br>
 
@@ -190,7 +208,10 @@
     <label for="">Acepto la politica de privacidad:</label>
     <input type="checkbox" id="privacidad" required><span id="errorPrivacidad"></span><br><br>
 
+    <p id="usuario">Nombre de usuario: </p>
+
 
     <button>Confirmar</button>
+    
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refuerzo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Buscar usuarios de GitHub</h1>
+    <input type="text" id="texto">
+    <button id="btn">Buscar usuario</button><br><br>
+    <p id="resultado"></p>
+</body>
+<img src="" alt="">
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function(){
+            let nombre = $("#texto").val()
+            let url = "https://api.github.com/users/" + nombre
+            $.get(url).done(function(datos){
+                $("#resultado").empty()
+                $("#resultado").append("<p>login: " + datos.login + "</p>")
+                $("#resultado").append('<img src="'+datos.avatar_url+'">')
+            }).fail(function(){
+                console.log("Error")
+            })
+        })
+    });
+</script>
+</html>
