@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refuerzo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Buscar libros en Google Books</h1>
+    <input type="text" id="texto">
+<button id="btn">Buscar libros</button><br><br>
+    <p id="resultado"></p>
+</body>
+<img src="" alt="">
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function(){
+            let titulo = $("#texto").val()
+        let url = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + titulo + "&key=AIzaSyBElzAvb9jHNvFoXt0ECFIBxmhhLt1dIjI"
+            $.get(url).done(function(datos){
+                $("#resultado").empty()
+                $("#resultado").append("<p>Titulo: " + datos.items[0].volumeInfo.title + "</p>")
+            }).fail(function(){
+                $("#resultado").text("Error")
+            })
+        })
+    });
+</script>
+</html>
