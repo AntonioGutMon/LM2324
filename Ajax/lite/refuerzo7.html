@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refuerzo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Buscar Gifts</h1>
+    <input type="text" id="texto">
+<button id="btn">Buscar Gifts</button><br><br>
+    <p id="resultado"></p>
+</body>
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function(){
+            let titulo = $("#texto").val()
+        let url = "https://api.giphy.com/v1/gifs/search?api_key=g8CehT8orcoIUMbTYnjFdhqAEZokRrWX&q=" + titulo
+            $.get(url).done(function(datos){
+                $("#resultado").empty()
+                for(var i=0; i < datos.data.length; i++){
+                    $("#resultado").append('<img src="'+ datos.data[i].images.original.url +'">') 
+                }
+            }).fail(function(){
+                $("#resultado").text("Error")
+            })
+        })
+    });
+</script>
+</html>
