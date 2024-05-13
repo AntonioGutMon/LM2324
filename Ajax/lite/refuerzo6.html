@@ -7,23 +7,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Buscar fotos</h1>
-    <input type="text" id="texto">
-<button id="btn">Buscar fotos</button><br><br>
-    <p id="resultado"></p>
-</body>
-<script>
-    $(document).ready(function () {
-        $("#btn").click(function(){
-            let titulo = $("#texto").val()
-        let url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=6b864bbd5799348121080282b08ef518&text=" + texto +"&format=json&nojsoncallback=1"
-            $.get(url).done(function(datos){
-                $("#resultado").empty()
-                $("#resultado").append("<p>Titulo: " + datos.items[0].volumeInfo.title + "</p>")
-            }).fail(function(){
-                $("#resultado").text("Error")
-            })
-        })
-    });
+    <body>
+        <h1>Buscar imaganes</h1>
+        <input type="text" id="texto">
+        <p id="btn"><button>Buscar</button></p>
+        <div id="mostrar"></div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var texto = $("#texto").val(); 
+                $.ajax({
+                    url:'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=36e7929e67f0f02877bac72f5c7d634a&text='+texto+'&format=json&nojsoncallback=1',
+                    dataType:'json',
+                    success:function(datos){
+    
+                        $("#mostrar").empty();
+    
+                        for(var i=0; i<datos.photos.photo.length; i++){
+                           
+                            var farm_id= datos.photos.photo[i].farm;
+                            var server_id= datos.photos.photo[i].server;
+                            var id= datos.photos.photo[i].id;
+                            var secret= datos.photos.photo[i].secret;
+                            var url_Tex_Img = "https://farm"+ farm_id +".staticflickr.com/"+ server_id +"/"+ id +"_"+ secret +".jpg"
+                            $("#mostrar").append("<div id='img'><img src=" + url_Tex_Img + ">"+"</div>")
+                        }
+    
+                    },
+                    error:function(){
+                        $("#mostrar").append("<p>"+"Ha habido un error al conectarse con el servidor"+"</p>");
+                    }
+                });
+            });
+        });
 </script>
 </html>
