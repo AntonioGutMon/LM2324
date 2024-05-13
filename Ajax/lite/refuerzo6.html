@@ -7,22 +7,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Buscar usuarios de GitHub</h1>
+    <h1>Buscar fotos</h1>
     <input type="text" id="texto">
-    <button id="btn">Buscar usuario</button><br><br>
+<button id="btn">Buscar fotos</button><br><br>
     <p id="resultado"></p>
 </body>
 <script>
     $(document).ready(function () {
         $("#btn").click(function(){
-            let nombre = $("#texto").val()
-            let url = "https://api.github.com/users/" + nombre
+            let titulo = $("#texto").val()
+        let url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=6b864bbd5799348121080282b08ef518&text=" + texto +"&format=json&nojsoncallback=1"
             $.get(url).done(function(datos){
                 $("#resultado").empty()
-                $("#resultado").append("<p>login: " + datos.login + "</p>")
-                $("#resultado").append('<img src="'+datos.avatar_url+'">')
+                $("#resultado").append("<p>Titulo: " + datos.items[0].volumeInfo.title + "</p>")
             }).fail(function(){
-                console.log("Error")
+                $("#resultado").text("Error")
             })
         })
     });
