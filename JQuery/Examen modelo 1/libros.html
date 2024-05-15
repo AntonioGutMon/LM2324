@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria">
+    <title>Visualizador libros</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: 'Alexandria', sans-serif;
+        }
+        h1{
+            font-size: xx-large;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .contenedor {
+            display: flex;
+            flex-wrap:wrap;
+            flex-direction: column;
+           
+        }
+        .formulario {
+            width: 80%;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            background-color: rgb(133, 181, 197);
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 10px 10px 10px #7c7e8b;
+            overflow:auto;
+        }
+        .formulario > * {
+            margin: 10px;
+            padding: 10px;
+        }
+        input, label {
+            font-size: 1.5em;
+        }
+        button {
+            background-color:#091661;
+            font-size: x-large;
+            height: 60px;
+            width: 25%;
+            border-radius: 20px;
+            color: white;
+            margin-left: 2%;
+            margin-top: 1%;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="formulario">
+            <h1>Gutendex API</h1>
+            <label for="codlibro">Código Libro:</label>
+            <input type="number" name="codLibro" id="codLibro" min="1">
+            <br>
+            <label for="botones">Acción:</label>
+            <button id="btn-libro">Obtener libro</button>
+            <button id="btn-todos">Ver todos</button>
+            <div id="resultados">
+                <!-- Aqui cargaremos los resultados-->
+            </div>
+        </div>
+    </div>
+    <a href=""></a>
+    <script>
+        /* Aqui desarrollamos el código necesario */
+        $(document).ready(function () {
+            $("#btn-todos").click(function(){
+                let url1 = "https://gutendex.com/books/?page=2"
+                $.get(url1).done(function(datos){
+                        $("#resultados").empty()
+                    for(var i=0; i < datos.results.length; i++){
+                        $("#resultados").append("<p>Titulo: "+ datos.results[i].title +"</p>")
+                        $("#resultados").append("<p>Autor: "+ datos.results[i].authors[0].name +"</p>")
+                        $("#resultados").append('<img src="'+ datos.results[i].formats['image/jpeg'] +'">')
+                        $("#resultados").append('<p><a href="'+ datos.results[i].formats['text/plain; charset=us-ascii'] +'" target="_blank">Descarga aquí</a></p>')
+                        $("#resultados").append("<p>Descargas totales: "+ datos.results[i].download_count +"</p>")
+                    }
+                }).fail(function(){
+                    $("#resultados").text("Error")
+                })
+            })
+
+            $("#btn-libro").click(function(){
+                let id = $("#codLibro").val()
+                let url1 = "https://gutendex.com/books/?&ids=" + id
+                if (id > 0){
+                    $.get(url1).done(function(datos){
+                        $("#resultados").empty()
+                        $("#resultados").append("<p>Titulo: "+ datos.results[0].title +"</p>")
+                        $("#resultados").append("<p>Autor: "+ datos.results[0].authors[0].name +"</p>")
+                        $("#resultados").append('<img src="'+ datos.results[0].formats['image/jpeg'] +'">')
+                        $("#resultados").append('<p><a href="'+ datos.results[0].formats['text/plain; charset=us-ascii'] +'" target="_blank">Descarga aquí</a></p>')
+                        $("#resultados").append("<p>Descargas totales: "+ datos.results[0].download_count +"</p>")
+                    }).fail(function(){
+                            $("#resultados").text("Error")
+                        }) 
+                }
+                else{
+                    $("#resultados").text("Introdice un número válido")
+                }
+            })
+
+
+        });
+    </script>
+</body>
+</html>
