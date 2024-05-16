@@ -89,7 +89,7 @@
             <br>
             <button id="reserva">Reserva</button>
             <p id="diaReserva"></p>
-            <p id="totalPrecio">Precio: </p>
+            <p id="totalPrecio"></p>
         </form>
      </div>
     <script>
@@ -120,6 +120,8 @@
 
             $("#reserva").click(function(){
 
+                
+                event.preventDefault()
                 let precio = 0
 
                 let valor = $("#hora").val()
@@ -137,7 +139,8 @@
                     precio += 4
                 }
 
-                $("#totalPrecio").append(precio)
+                $("#totalPrecio").empty()
+                $("#totalPrecio").append('<p>Precio: '+ precio +'</p>')
                 $("#totalPrecio").append('<p>Dia: '+ $("#fecha").val() +'</p>')
                 $("#totalPrecio").append('<p>Pista: '+ $("#pista").val() +'</p>')
 
