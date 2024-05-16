@@ -131,31 +131,20 @@
             $("#fecha").datepicker(
                 { minDate: "1D", maxDate: "2W", beforeShowDay: $.datepicker.noWeekends} 
             );
-
-            $("#reserva").click(function(){
-                
-                event.preventDefault()
-            
+            $("#reserva").click(function(){   
+                event.preventDefault() 
                 let cfecha = $("#fecha").val()
                 if (cfecha == ""){
                     alert("Introduce una fecha valida")
                 }
-
                 let checked = $(".carrito:checked").length
                 let final = checked*15
-
-
-
-
-
                 let hora = $("#hora").val()
                 $("#diaReserva").empty(cfecha)
                 $("#totalPortatiles").empty(final)
                 $("#diaReserva").append('<p>Dia de reserva: '+ cfecha + ' a las ' + hora +'</p>')
                 $("#totalPortatiles").append('<p>Nº Portátiles: '+ final +'</p>')
-
             })
-
         });
 </script>
 
