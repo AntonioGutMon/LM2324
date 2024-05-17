@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Polution API</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+</head>
+<body>
+    <h1>Air Polution API</h1><br>
+    <label for="">Introduce la latitud:</label><br><br>
+    <input type="text" id="latitud"><br><br>
+    <label for="">Introduce la longitud:</label><br><br>
+    <input type="text" id="longitud"><br><br>
+    <button id="btn">Enviar</button>
+    <div id="caja"><p id="resultado"></p></div>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function(){
+                let latitud = $("#latitud").val()
+                let longitud = $("#longitud").val()
+                let apikey = "3f0c1a3704738cbefafa176ab23dc9d8"
+                let url = "http://api.openweathermap.org/data/2.5/air_pollution?lat=" + latitud + "&lon=" + longitud + "&appid=" + apikey
+                $.get(url).done(function(datos){
+                    let aire = datos.list[0].main.aqi
+                    let carbono = datos.list[0].components.co
+                    let azufre = datos.list[0].components.so2
+                    let particulas = datos.list[0].components.pm2_5
+                    if (aire == 1){
+                       aire = "Bueno"
+                       $("#caja").css("background-color", "#008000")
+                       $("#caja").css('padding', '20px')
+                    }
+                    if (aire == 2){
+                       aire = "Aceptable"
+                       $("#caja").css("background-color", "#FFD300")
+                       $("#caja").css('padding', '20px')
+                    }
+                    if (aire == 3){
+                       aire = "Moderado"
+                       $("#caja").css("background-color", "#FFA500")
+                       $("#caja").css('padding', '20px')
+                    }
+                    if (aire == 4){
+                       aire = "Malo"
+                       $("#caja").css("background-color", "#7D2181")
+                       $("#caja").css('padding', '20px')
+                    }
+                    if (aire == 5){
+                       aire = "Muy malo"
+                       $("#caja").css("background-color", "#FF0000")
+                       $("#caja").css('padding', '20px')
+                    }
+                    $("#resultado").empty()
+                    $("#resultado").append(
+                        "<p>Calidad del aire: "+ aire +"</p>" +
+                        "<p>Cantidad de monóxido de carbono (CO): "+ carbono +" μg/m<sup>3</sup></p>" +
+                        "<p>Cantidad de dióxido de azufre (SO<sub>2</sub>): "+ azufre +" μg/m<sup>3</sup></p>" +
+                        "<p>Cantidad de partículas finas (PM<sub>2.5</sub>): "+ particulas +" μg/m<sup>3</sup></p>"
+                    )
+                }).fail(function(){
+                    $("#resultado").empty()
+                    $("#caja").css("background-color", "#FFFFFF")
+                    if(latitud == "" || longitud == ""){
+                        $("#resultado").text("Introduce una latitud y una longitud, por favor")
+                    }
+                    else{
+                        $("#resultado").text("Error de ajax")
+                    }
+                    
+                })
+            })
+        });
+    </script>
+</body>
+</html>
