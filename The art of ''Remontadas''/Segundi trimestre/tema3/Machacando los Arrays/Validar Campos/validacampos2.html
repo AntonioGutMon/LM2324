@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario2</title>
+    <script src="validar.js"></script> 
+</head>
+<body>
+    <form action="">
+        <label for="">Nombre:</label><input id="nombre" type="text" required><br>
+        <label for="">Apellidos:</label><input id="apellidos" type="text"><br>
+        <label for="">Email:</label><input id="email" type="email" required><br>
+        <label for="">Password:</label><input id="password" type="password" name="" id="" required> <br>
+        <label for="">Acepta politica privacidad</label><input id="politicas" type="checkbox" required> <br>
+        <button onclick="validar(document.getElementsByTagName('input'))"> Validar</button>
+    </form>
+</body>
+</html>

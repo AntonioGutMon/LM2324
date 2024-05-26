@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Arrays 1</title>
+</head>
+<body>
+
+    <h1>Adivina la palabra entre las siguientes:</h1>
+
+    <h3 id="opciones"></h3>
+
+    <input type="text" id="palabra"></input>
+    <button onclick="solucionar()">COMPROBAR</button>
+
+    <script>
+        var palabras = ["casa","perro","arbol","coche","instituto","fiesta"];
+        document.getElementById("opciones").innerHTML = palabras;
+
+        var aleatorio = Math.random(); 
+        aleatorio = aleatorio * 5 + 1;
+        aleatorio = Math.trunc(aleatorio);
+
+        function solucionar() {
+            var comprobar = document.getElementById("palabra").value;
+
+            var solucion = aleatorio;
+
+            if (comprobar==palabras[solucion]) {
+                alert("FELICIDADES!! HAS ADIVINADO LA PALABRA")
+            }
+            else {
+                alert("SIGUE PROBANDO")
+            }
+        }
+    </script>
+    
+</body>
+</html>

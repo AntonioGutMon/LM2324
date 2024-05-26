@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de createElement y appendChild</title>
+</head>
+<body>
+    <p>Añadir elementos a una lista con document.CreateElement y appendChild</p>
+    <ul id="lista">
+    </ul>
+    <button type="button" onclick="anadirElemento()">Añade elemento</button>
+
+    <script>
+        function anadirElemento() {
+            var lista = document.getElementById("lista");
+            var elemento = document.createElement("li");  // elemento, crea el elemento li
+            elemento.textContent = "Elemento " + (lista.children.length + 1); //texcontent se refiere al contenido de texto puro de un elemento HTML. Solo obtiene o 
+                                                                              //establece texto sin etiquetas HTML ni ningún formato adicional. como si utilizara innerhtml
+                                                                              //lista.children.length es un NUMERO
+            lista.appendChild(elemento);    // anexa "elemento" al final de "lista"
+        }                                    // Observa en la consola lista y lista.children
+    </script>
+</body>
+</html>

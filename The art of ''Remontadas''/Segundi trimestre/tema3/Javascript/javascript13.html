@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Javascript 13</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<p>Pulsa el botón para sustraer elemento.</p>
+<button onclick="sustrae()">Sustrae</button>
+<p id="demo"></p>
+<script>
+var frutas = ["Platano", "Naranja", "Manzana", "Mango"];
+document.getElementById("demo").innerHTML = frutas;
+function sustrae() {
+frutas.pop();
+document.getElementById("demo").innerHTML = frutas;
+}
+</script>
+</body>
+</html>

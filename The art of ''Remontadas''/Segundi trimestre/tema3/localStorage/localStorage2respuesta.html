@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CambiarTema</title>
+</head>
+<body>
+    <header><h1> Cambio de tema</h1></header>    
+    <button id="blanco" onclick="cambiar_a_blanco()">Tema en blanco</button>
+    <button id="negro" onclick="cambiar_a_negro()">Tema en negro</button>
+    <script>
+        function temablanco(){
+            document.body.style.backgroundColor="#ffffff"; //Blanco
+            document.body.style.color="#000000";
+        }
+        function temanegro(){
+            document.body.style.backgroundColor="#000000"; //Negro
+            document.body.style.color="#ffffff";
+        }
+        function cambiar_a_blanco(){
+            temablanco();
+            guardartema("blanco");
+        }
+        function cambiar_a_negro(){
+            temanegro();
+            guardartema("negro");
+        }
+        function guardartema(tema){
+            localStorage.setItem("tema",tema);
+        }
+        function cargartema(){
+            const tema_guardado = localStorage.getItem("tema");
+            if(tema_guardado=="negro"){
+                temanegro()
+            }
+            else{
+                temablanco()
+            }
+        }
+        window.onload=cargartema();
+    </script>
+</body>
+</html>

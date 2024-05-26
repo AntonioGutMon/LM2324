@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distancias</title>
+</head>
+<body>
+    <h1>Calculadora de viajes</h1>
+    <input type="text" id="distancias">
+    <button onclick="calcular()">Calcular</button><br>
+    <p id="resultado"></p>
+    <script>
+        function calcular(){
+            var distancias = document.getElementById("distancias").value
+            var numeros = distancias.split(',')
+            var total = 0
+            for(var i=0; i<numeros.length; i++){
+                    var distanciax = parseFloat(numeros[i])
+                    total += distanciax 
+                    document.getElementById("resultado").innerHTML = ("La distancia total es de " + total)
+            }
+        }
+    </script>
+</body>
+</html>

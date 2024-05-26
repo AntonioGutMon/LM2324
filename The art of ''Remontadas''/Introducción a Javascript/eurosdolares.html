@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+</head>
+<body>
+    <label for="">Introduce los euros:</label>
+    <input type="text" id="euros"><br><br>
+    <button onclick="convertir()">Convertir a dolares</button><br><br>
+    <button onclick="convertir2()">Convertir a euros</button><br><br>
+    <p id="resultado"></p>
+    <script>
+        function convertir(){
+            let euros = document.getElementById("euros").value
+            let dolares = euros * 1.08
+            document.getElementById("resultado").innerHTML = (euros + "€ son " + dolares + "$")
+        }
+        function convertir2(){
+            let dolares = document.getElementById("euros").value
+            let euros = dolares * 0.92
+            document.getElementById("resultado").innerHTML = (dolares + "$ son " + euros + "€")
+        }
+    </script>
+</body>
+</html>

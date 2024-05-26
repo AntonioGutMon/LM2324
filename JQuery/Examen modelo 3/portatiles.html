@@ -136,6 +136,8 @@
                 let cfecha = $("#fecha").val()
                 if (cfecha == ""){
                     alert("Introduce una fecha valida")
+                    $("#diaReserva").empty(cfecha)
+                    $("#totalPortatiles").empty(final)
                 }
                 let checked = $(".carrito:checked").length
                 let final = checked*15

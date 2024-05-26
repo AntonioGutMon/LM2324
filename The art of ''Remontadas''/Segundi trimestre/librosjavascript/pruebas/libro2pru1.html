@@ -1,0 +1,27 @@
+<html>
+<head> <title>Lanzar el dado</title>
+<script>
+// Lanzar el dado
+// convierte un número aleatorio en la cara de un dado
+var semilla = 0;
+var mayor = 0;
+var entero = 0;
+var final = 0;
+var resultado = "";
+
+semilla = Math.random();
+mayor = semilla * 6;   //
+entero = Math.floor(mayor);
+final = entero + 1;
+resultado = "Semilla: " + semilla + "\n";
+resultado += "Mayor: " + mayor + "\n";
+resultado += "Entero: " + entero + "\n";
+resultado += "Final: " + final + "\n";
+alert(resultado);
+</script>
+</head>
+<body>
+<h1>Lanza el dado<br />
+</h1>
+<hr>
+</body>

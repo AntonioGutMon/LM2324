@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardar fecha</title>
+</head>
+<body>
+    <p id="texto"></p>
+    <script>
+        function carga(){
+        let cadena = localStorage.getItem("ultimafechahora");
+        var hoy = new Date();
+        var ahora = hoy.toLocaleString();
+        if(cadena!=null)
+        {
+            //se conecto alguna vez
+            document.getElementById("texto").innerHTML="Se conecto la ultima vez el dia "+cadena;
+        }
+        else
+        {
+            //Es la primera vez que se ha conectado
+            document.getElementById("texto").innerHTML="Hasta ahora mismo, nunca te habias conectado";
+        }
+        localStorage.setItem("ultimafechahora",ahora)
+
+        }
+        window.onload = carga();
+    </script>
+</body>
+</html>

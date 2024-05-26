@@ -1,0 +1,54 @@
+
+<body>
+    <center><h1>Selector de Color<hr /></h1>
+    <h3>Por favor, elige un color</h3>
+    <form name="miForm" id="miForm" action="">
+    <select name="selColor" id="selColor">
+    <option value="red">Rojo</option>
+    <option value="orange">Naranja</option>
+    <option value="yellow">Amarillo</option>
+    <option value="green">Verde</option>
+    <option value="blue">Azul</option>
+    <option value="indigo">Añil</option>
+    <option value="violet">Violeta</option>
+    </select>
+    <br />
+    <input type="button" value="Cambiar color" onclick="cambiaColor()" />
+    </form>
+    </center>
+    <hr />
+
+    <script type="text/javascript">
+      /*  function cambiaColor(){
+        // Selector de Color
+        // demuestra una lista desplegable, u objeto select
+        var laLista = document.getElementById("selColor");
+        var laOpcion = laLista[laLista.selectedIndex];
+        var elColor = laOpcion.value;
+        document.bgColor = elColor;
+        } // end function cambiaColor */
+
+        //SELECTOR MULTIPLE 
+        function cambiaColor(){
+        // Selector de Color
+        // demuestra una lista desplegable, u objeto select
+        var laLista = document.miForm.selColor;
+        var laOpcion = laLista[laLista.selectedIndex];
+        var elColor = laOpcion.value;
+        document.bgColor = elColor;
+        //listar todos los colores seleccionados
+        var listaColores = "";
+        var i = 0;
+        for (i = 0; i < laLista.length; i++){
+        laOpcion = laLista.options[i];
+        if (laOpcion.selected == true){
+        listaColores += laOpcion.value + "\n";
+        } // end if
+        } // end for loop
+        document.miForm.txtSalida.value = listaColores;
+        } // end function cambiaColor
+        </script>
+
+
+
+    </body>

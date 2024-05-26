@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+div#examen
+{
+    border:#000 1px solid;
+    padding:10px 40px 40px 40px;
+
+}
+</style>
+<script>
+var clicks = 0;
+var pregunta = ['¿Cual es el primer apellido de Napoleon?', '¿Que significa LM en informatica?', '¿Como saco un diez en el examen de Lenguaje de Marcas?'];
+var respuesta1 = ['Buendinero', 'Bonaparte', 'Sandiego'];
+var respuesta2 = ['Lenguaje de Marcas','Historia de España','Base de datos'];
+var respuesta3 = ['Estudiando','Durmiendo','Usando ChatGPT'];
+var an1 = 0;
+var an2 = 0;
+var an3 = 0;
+var aciertos = an1 + an2 + an3;
+
+function eval(){
+clicks = clicks + 1;
+
+    if(clicks==1){
+    document.getElementById("enunciado").innerHTML = pregunta[0];
+    document.getElementById("campo1").innerHTML = respuesta1[0];
+    document.getElementById("campo2").innerHTML = respuesta1[1];
+    document.getElementById("campo3").innerHTML = respuesta1[2];
+        if(document.getElementById('circulo1').checked==true){an1 = 1}
+        return an1;
+    }
+
+
+    else if (clicks==2){
+    document.getElementById("enunciado").innerHTML = pregunta[1];
+    document.getElementById("campo1").innerHTML = respuesta2[0];
+    document.getElementById("campo2").innerHTML = respuesta2[1];
+    document.getElementById("campo3").innerHTML = respuesta2[2];
+        if(document.getElementById('circulo1').checked==true){an2 = 1}
+        return an2;
+    }
+
+    else if (clicks==3){
+    document.getElementById("enunciado").innerHTML = pregunta[2];
+    document.getElementById("campo1").innerHTML = respuesta3[0];
+    document.getElementById("campo2").innerHTML = respuesta3[1];
+    document.getElementById("campo3").innerHTML = respuesta3[2];
+        if(document.getElementById('circulo1').checked==true){an3 = 1}
+        return an3;
+    }
+    
+    else if (clicks==4){
+    alert("El numero de aciertos es de " + aciertos);
+    }
+}
+
+</script>
+</head>
+<body>
+<h1>Cuestionario</h1>
+<h2 id="estado"></h2>
+<div id="examen">
+<h2 id="enunciado"> Bienvenido, haga clic en el boton para empezar la encuesta</h2>
+<input type="radio" id="circulo1" name="circulo"> <span id="campo1"></span> <br>
+<input type="radio" id="circulo2" name="circulo"> <span id="campo2"></span> <br>
+<input type="radio" id="circulo3" name="circulo"> <span id="campo3"></span> <br> <br>
+<button onclick="eval()"> Pasar al siguiente</button>
+</div>
+</body>
+</html>
+

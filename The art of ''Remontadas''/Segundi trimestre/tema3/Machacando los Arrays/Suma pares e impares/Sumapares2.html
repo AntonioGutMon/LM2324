@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma Pares</title>
+</head>
+<body>
+    <h1> Suma Pares 2</h1>
+    <p id="resultado"></p>
+    <script>
+//Array de numeros
+let numeros=[1, 2.8, -9, 100, 3, 17, 82, -23.3];
+function sumaPares(numeros){
+    let total = 0.0;
+    for (var i=0;i<numeros.length;i++){
+        if (numeros[i]%2 == 0)
+        total = total + numeros[i];
+    }
+    document.getElementById("resultado").innerHTML = total;
+}
+    sumaPares(numeros);
+</script>
+</body>
+</html>

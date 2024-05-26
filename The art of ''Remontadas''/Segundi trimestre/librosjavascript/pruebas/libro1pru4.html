@@ -1,0 +1,24 @@
+<html>
+<head> <title>Jugando con el nombre</title>
+</head>
+<body>
+<h1>Jugando con el nombre</h1>
+
+<script>
+//Jugando con el nombre
+//hace varias manipulaciones con el nombre del usuario
+//usa los métodos de String
+var nombre = "";
+var apellido = "";
+var numLetras = 0;
+nombre = prompt("Hola, cómo te llamas?", "");
+alert ("Tienes un bonito nombre, " + nombre);
+alert ("Creo que voy a gritarlo: " + nombre.toUpperCase());
+apellido = prompt("Y cuál es tu apellido, " + nombre + "?");
+alert ("Oh. " + nombre + " " + apellido + ".");
+alert ("A veces te llaman " + apellido + ", " + nombre);
+numLetras = nombre.length + apellido.length;
+alert ("Sabías que tu nombre y apellido tienen " + numLetras + " letras?");
+</script>
+</body>
+</html>

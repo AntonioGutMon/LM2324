@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=ç, initial-scale=1.0">
+    <title>Usuario y Contraseña</title>
+</head>
+<body>
+
+
+     <h1> Usuario y contraseña</h1>
+     <h2>Por favor introduzca usuario y contraseña</h2>
+     <input type="text" id="Usuario" placeholder="Introduzca su usuario" >
+     <input type="password" id="Contrasena" placeholder="Introduzca contraseña">
+     <button onclick="Hello()"> Iniciar sesión </button>
+
+    <script>
+        function Hello(){
+        var x;
+        var y;
+        x = document.getElementById("Usuario").value;
+        y = document.getElementById("Contrasena").value;
+        alert('Bienvenido usuario ' + x + ' con la contraseña ' + y + ".");
+        }
+   </script>
+</body>
+</html>
+

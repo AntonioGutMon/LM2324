@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba cambio tema</title>
+</head>
+<body>
+    <button onclick="changetowhite()">Blanco</button>
+    <button onclick="changetoblack()">Negro</button>
+
+ <script>
+    var colorfondo
+    function changetowhite(){
+    document.body.style.backgroundColor = "#ffffff"
+    colorfondo= document.body.style.backgroundColor
+    guardar(); 
+    }
+
+    function changetoblack(){
+    document.body.style.backgroundColor = "#000000"
+    guardar();
+    }
+
+    function guardar(){
+        localStorage.setItem("dato", document.body.style.backgroundColor)
+    }
+
+    function cargar(){
+        var get = localStorage.getItem("dato")
+        document.body.style.backgroundColor = get
+    }
+
+    window.onload = cargar();
+ </script>
+
+
+
+</body>
+</html>

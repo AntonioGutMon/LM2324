@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumapares</title>
+</head>
+<body>
+    <label for="">Introduce un numero:</label>
+    <input type="text" id="numero">
+    <button onclick="anadir()">Añadir</button>
+    <button onclick="sumar()">Sumar Pares</button><br><br>
+    <p id="numeros"></p>
+    <p id="resultado"></p>
+    <script>
+        var numeros = []
+        function anadir(){
+            let numero = document.getElementById("numero").value
+            if (isNaN(numero)){
+                alert("Introduce un numero")
+            }
+            else{ 
+                numeros.push(numero)
+            }
+            document.getElementById("numeros").innerHTML = (numeros)
+        }
+        function sumar(){
+            contador = 0
+            for (var i=0; i<numeros.length; i++){
+                if(numeros[i] % 2 == 0){
+                    suma = contador + numeros[i]
+                    contador = suma
+                }
+            }
+            document.getElementById("resultado").innerHTML = suma
+        }
+    </script>
+</body>
+</html>

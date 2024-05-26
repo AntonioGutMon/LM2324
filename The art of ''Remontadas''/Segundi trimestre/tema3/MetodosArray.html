@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Documentos Arrays</title>
+</head>
+<body>
+
+<br>    
+<p id="colors"></p>    
+<p id="lugar"></p>   
+
+<P> Pulsa el boton para eliminar el elemento </P>   
+<button onclick="eliminar()">Eliminar</button>
+
+<p> Escriba el elemento a añadir, y pulse el boton para añadir el elemento </p>
+<input type="text" id="elementoanadir">
+<button onclick="anadir()">Añadir</button>
+
+<p> Pulsa para ordenar de manera creciente </p>
+<button onclick="creciente()">Creciente</button>
+
+<p> Pulsa el boton para ordenar de manera decreciente </p>
+<button onclick="decreciente()">Decreciente</button>
+
+<p> Escriba el elemento a buscar y pulse el boton</p>
+<input type="text" id="elementobuscar">
+    <button onclick="busqueda()"> Buscar elemento </button>
+       
+
+<script> 
+var colores = ["rojo",  "verde", "azul", "naranja", "purpura", "marron", "gris", "negro", "rosa", "amarillo"];
+function pintarArray(){  //Nombre aleatorio que se le ha dado a la funcion
+    document.getElementById("colors").innerHTML = "";  //vacia el parrafo
+    for (var i=0;i<colores.length;i++)  // i cuenta la longitud de todo lo que hay en colores
+    if (i==0)
+        document.getElementById("colors").innerHTML = colores[i];  //si no ha cambiado la longitud de colores, pon todo lo que hay en colores (lo deja igual que al princicpio)
+    else                                                           //Con [ ] se accede a las propiedades del objeto
+        document.getElementById("colors").innerHTML += ", " + colores[i]; //añade una coma y el nuevo a partir de la ultima longitud en la que se creo
+}
+pintarArray(); //llama de nuevo a la funcion
+
+    function eliminar() {
+        colores.pop();    //Elimina una de colores
+        document.getElementById("colors").innerHTML = colores;  //sobreescribe el parrafo "colors" con la modificacion de colores que hemos hecho antes
+    }
+
+    function anadir() {
+        anadirelement = document.getElementById("elementoanadir").value;
+        colores.push(anadirelement);
+        pintarArray();  //llama de nuevo a la funcion para que lo añada a continuacion
+    }
+
+    function creciente() {
+        colores.sort();
+        document.getElementById("colors").innerHTML = colores;  
+    }
+
+    function decreciente() {
+        colores.reverse();
+        document.getElementById("colors").innerHTML = colores;
+    }
+
+    function busqueda() {
+        var ncolor = document.getElementById("elementobuscar").value;
+        var posicion = colores.indexOf(ncolor);
+        if (posicion==-1){
+        document.getElementById("lugar").innerHTML = "No encontrado";
+        }else{
+        document.getElementById("lugar").innerHTML = "El " + ncolor + " se encuentra en la posicion " + colores.indexOf(ncolor);
+        }
+    }
+
+</script>
+</body>
+</html>
+
+

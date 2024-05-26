@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma</title>
+</head>
+<body>
+    <h1>calculaperri</h1>
+    <label for="">Número 1:</label>
+    <input type="text" id="a">
+    <label for="">Numero 2:</label>
+    <input type="text" id="b">
+    <button onclick="suma()">Suma</button>
+    <button onclick="resta()">Resta</button>
+    <button onclick="multi()">Multi</button>
+    <button onclick="dividir()">Dividir</button>
+    <p id="resultado"></p>
+    <script>
+        function suma(){
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            document.getElementById("resultado").innerHTML = a+b;
+        }
+        function resta(){
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            document.getElementById("resultado").innerHTML = a-b;
+        }
+        function multi(){
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            document.getElementById("resultado").innerHTML = a*b;
+        }
+        function dividir(){
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            if (b==0)
+            // Si solo hay una instruccion, no hace falta llave
+            // Bloque de instrucciones si verdadero
+                alert ("Imposible dividir por cero");
+            else 
+            // Bloque de instrucciones si falso
+            document.getElementById("resultado").innerHTML = a/b;
+        }
+    </script>
+</body>
+</html>

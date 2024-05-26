@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificaciones</title>
+</head>
+<body>
+    <label for="">Introduce aqui tus notas:</label>
+    <input type="text" id="notas"><br><br>
+    <button onclick="anadir()">Añadir</button>
+    <button onclick="eliminar()">Eliminar</button>
+    <button onclick="media()">Calcular media</button><br><br>
+    <p id="rnotas"></p>
+    <p id="rmedia"></p>
+    <script>
+
+        var notas = []
+        var media_notas = 0
+
+        function mecanismo(){
+            for(var i=0; i<notas.length; i++){
+                if(i==0){
+                    document.getElementById("rnotas").innerHTML = notas[i]
+                }
+                else{
+                    document.getElementById("rnotas").innerHTML += ", " + notas[i]
+                }
+            }
+        }
+
+        function anadir(){
+            let nota = parseFloat(document.getElementById("notas").value)
+            if(nota >= 0 && nota <=10){
+                notas.push(nota)
+                mecanismo()
+            }
+            else{
+                alert("No se pueden introducir notas que no esten entre 0 y 10")
+            }
+        }
+
+        function eliminar(){
+            notas.pop()
+            mecanismo()
+        }
+
+        function media(){
+            var suma_notas=0
+            for(var i=0; i<notas.length; i++){
+                suma_notas += notas[i] 
+            }
+            media_notas = suma_notas / notas.length
+            document.getElementById("rmedia").innerHTML = "La media de las notas registradas es: " + media_notas;
+        }
+    </script>
+</body>
+</html>

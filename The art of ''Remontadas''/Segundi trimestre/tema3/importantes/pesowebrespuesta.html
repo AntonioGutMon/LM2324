@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness</title>
+    <style>
+        .contenedor{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Bienvenido a TuFitness</h1>
+        <img src="fitness.jpeg" alt="">
+        <input type="text" id="pesoActual">
+        <button onclick="guardar()">Guardar progreso</button>
+        <p id="parrafo"></p>
+    </div>
+    <script>
+        let pesoAnterior=100000; // Valor inicial
+        function guardar(){
+            let pesoActual = document.getElementById("pesoActual").value;
+            if (pesoActual!=""){
+                // Tiene algo
+                localStorage.setItem("peso", pesoActual);
+                if (pesoActual>pesoAnterior){
+                    document.getElementById("parrafo").innerHTML = "Hay que reducir carbohidratos"
+                }
+                if (pesoActual==pesoAnterior)
+                {
+                    document.getElementById("parrafo").innerHTML = "Pesas lo mismo que la última vez"
+                }
+                if (pesoActual<pesoAnterior)
+                {
+                    document.getElementById("parrafo").innerHTML = "¡Sigue así!";
+                }
+            }
+            else{
+                document.getElementById("parrafo").innerHTML = "Tienes que introducir tu peso en kg"
+            }
+        }
+        function cargar(){
+            var almacenado = localStorage.getItem("peso");
+            if (almacenado!=null)
+            {
+                pesoAnterior = parseFloat(almacenado);
+                document.getElementById("parrafo").innerHTML="Tu peso anterior era de " + pesoAnterior + "kg"
+            }
+        }
+        window.onload=cargar();
+    </script>
+</body>
+</html>

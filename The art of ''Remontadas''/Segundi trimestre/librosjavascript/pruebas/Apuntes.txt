@@ -1,0 +1,87 @@
+
+
+                                    TEMA 1
+
+Var crea una variable
+
+saludo = "Hola Pepe, qué tal?";
+Básicamente, esta línea asigna el texto "Hola Pepe, qué tal?" a la variable saludo.
+Cualquier cosa que se encuentra entre comillas se llama cadena de caracteres. String es el término
+que usan los programadores para referirse a las cadenas de caracteres, o sea al texto. El signo igual
+(=) indica asignación. La forma correcta de leer esta instrucción sería: almacena la cadena de
+caracteres "Hola Pepe, qué tal?" en la variable saludo.
+
+Concatenando Strings: la combinación de dos o más cadenas de caracteres. En JavaScript, la
+concatenación se realiza con el signo más (+).
+
+
+                                            Metodos de String
+    length: La clase String sólo tiene una propiedad: length, que guarda el número de
+    caracteres del String
+
+    charAt(indice):Devuelve el carácter que hay en la posición indicada como índice. Las
+    posiciones de un String empiezan en 0.
+
+    lastIndexOf(carácter,desde): Busca la posición de un carácter exáctamente igual a como lo hace la función
+    indexOf pero desde el final en lugar del principio. El segundo parámetro indica
+    el número de caracteres desde donde se busca, igual que en indexOf.
+
+    replace(substring_a_buscar,nuevoStr): Sirve para reemplazar porciones del texto de un String por otro texto, por
+    ejemplo, podríamos uilizarlo para reemplazar todas las apariciones del substring
+    "xxx" por "yyy". El método no reemplaza en el String, sino que devuelve un
+    resultante de hacer ese reemplazo. Acepta expresiones regulares como substring a buscar.
+
+    substring(inicio,fin): Devuelve el substring que empieza en el carácter de inicio y termina en el
+    carácter de fin. Si intercambiamos los parámetros de inicio y fin también
+    funciona. Simplemente nos da el substring que hay entre el carácter menor y el mayor.
+
+    toLowerCase(): Pone todas los caracteres de un String en minúsculas.
+
+    toUpperCase(): Pone todas los caracteres de un String en mayúsculas.
+
+    toString(): Este método lo tienen todos los objetos y se usa para convertirlos en cadenas.
+
+numLetras = nombre.length + apellido.length;
+numLetras es una variable numérica, nombre.length devuelve el número de caracteres de la
+variable. Asimismo, apellido.length, devuelve el número de caracteres del apellido. El
+programa suma ambos valores y los almacena en la variable numLetras.
+
+los métodos llevan paréntesis y las propiedades no.
+
+
+
+                                    TEMA 2
+
+Math.random() = devuelve un numero aleatorio
+
+                                    
+Math La clase que utilizamos para realizar cálculos matemáticos de todo tipo.
+
+Propiedades E - Número E o constante de Euler, la base de los logaritmos neperianos.
+            PI - Famoso número para cálculos trigonométricos.
+            SQRT2 - Raiz cuadrada de 2
+
+Métodos     abs() Devuelve el valor absoluto de un número.
+            acos() Devuelve el arcocoseno de un número en radianes.
+            asin() Devuelve el arcoseno de un número en radianes.
+            atan() Devuelve el arcotangente de un número en radianes.
+            ceil() Devuelve el entero igual o inmediatamente superior de un número (techo).
+            cos() Devuelve el coseno de un ángulo expresado en radianes.
+            exp() Devuelve el resultado de elevar el número E a un número.
+            floor() Devuelve el entero igual o inmediatamente inferior de un número(suelo).
+            log() Devuelve el logaritmo neperiano de un número.
+            max() Retorna el mayor de 2 números.
+            min() Retorna el menor de 2 números.
+            pow() Recibe dos números como parámetros y devuelve el primer número elevado al segundo número.
+            random() Devuelve un número aleatorio entre 0 y 1.
+            round() Redondea al entero más próximo.
+            sin() Devuelve el seno de un ángulo expresado en radianes.
+            sqrt() Devuelve la raiz cuadrada de un número.
+            tan() Devuelve la tangente de un ángulo expresado en radianes.
+
+Para obtener un número entre 0 y 5; Hacemos: semilla * 6;
+Esta sentencia multiplica el valor guardado en semilla por 6. El resultado será un valor mayor
+que 0 y menor que 6, pero que seguirá teniendo un montón de decimales.
+
+
+Obtener un número entero a partir de un número en coma flotante es relativamente sencillo.

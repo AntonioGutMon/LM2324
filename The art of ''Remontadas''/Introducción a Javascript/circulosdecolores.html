@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circulos</title>
+    <style>
+        #rojo{
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+        #verde{
+            background-color: green;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+        #azul{
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+        .caja{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <div id="rojo"></div>
+        <div id="verde"></div>
+        <div id="azul"></div>
+    </div>
+    <div class="caja">
+        <button onclick="quitarrojo()">rojo</button>
+        <button onclick="quitarverde()">verde</button>
+        <button onclick="quitarazul()">azul</button>
+    </div>
+    <script>
+        function quitarrojo(){
+            document.getElementById("rojo").style.display="none"
+        }
+        function quitarverde(){
+            document.getElementById("verde").style.display="none"
+        }
+        function quitarazul(){
+            document.getElementById("azul").style.display="none"
+        }
+    </script>
+</body>
+</html>

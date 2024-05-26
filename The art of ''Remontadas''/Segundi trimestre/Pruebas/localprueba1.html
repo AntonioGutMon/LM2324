@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 1 localStorage</title>
+</head>
+<body>
+    <input type="text" id="parrafo">
+    <button onclick="guardar()">Guardar</button>
+    <p id="muestra"></p>
+    <script>
+        function guardar(){
+            localStorage.setItem("informacion", document.getElementById("parrafo").value)
+        }
+        
+        function cargar(){
+           coge = localStorage.getItem("informacion")
+           document.getElementById("muestra").innerHTML = coge
+        }
+        window.onload = cargar();
+    </script>
+</body>
+</html>

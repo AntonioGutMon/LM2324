@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localprueba 3</title>
+</head>
+<body> 
+    <input type="text" id="tareas"> <button onclick="crear()">Crear entrada</button>
+    <ul id="entradas"></ul>
+
+    <script> 
+    
+    cosas=[]
+    function crear(){
+        var entradas =document.getElementById("entradas");
+        var elemento =document.createElement("li");
+        var texto = document.getElementById("tareas").value;
+        elemento.textContent = texto;
+        entradas.appendChild(elemento);
+        document.querySelectorAll('#entradas li').forEach(function(item)
+         { 
+        cosas.push(item.firstChild.textContent);
+         });
+        localStorage.setItem("datos",JSON.stringify(cosas));
+        }
+    
+    function cargar(){
+      let texto = JSON.parse(localStorage.getItem("datos")); 
+      var entradas = document.getElementById("entradas");
+      texto.forEach(function(text) {
+        var elemento =document.createElement("li");
+      elemento.textContent = text; 
+      entradas.appendChild(elemento); 
+    })
+    }
+    window.onload = cargar()
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+</head>
+<body>
+    <label for="">Nombre:</label>
+    <input type="text" name="" id="nombre"><br><br>
+    <label for="">Apellidos:</label>
+    <input type="text" name="" id="apellido"><br><br>
+    <button onclick="hola()">Confirmar</button>
+    <script>
+        function hola(){
+            let nombre = document.getElementById("nombre").value
+            let apellidos = document.getElementById("apellido").value
+            alert("Hola " + nombre + " " + apellidos + ", bienvenido")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<body>
+    <script>
+    function creaHD(){
+        // Historia disparatada 2.0
+        // crea una historia disparatada a partir de un conjunto de entradas
+        // crear las variables
+        var sonido;
+        var persona;
+        var parte;
+        var descripcion;
+        var vehiculo;
+        var animal;
+        var historia = "";
+        //obtner las variables cuadro de texto
+        persona = window.document.miForm.txtPersona.value;
+        vehiculo = document.miForm.txtVehiculo.value;
+        animal = document.miForm.txtAnimal.value;
+        //obtener descripción
+        descripcion = "";
+        if (document.miForm.chkDiablo.checked==true){
+        descripcion += document.miForm.chkDiablo.value;
+        descripcion += ", ";
+        } // end if
+        if (document.miForm.chkGoofy.checked==true){
+        descripcion += document.miForm.chkGoofy.value;
+        descripcion += ", ";
+        } // end if
+        if (document.miForm.chkDisfunc.checked==true){
+        descripcion += document.miForm.chkDisfunc.value;
+        descripcion += ", ";
+        } // end if
+        if (document.miForm.chkChiflado.checked==true){
+        descripcion += document.miForm.chkChiflado.value;
+        descripcion += ", ";
+        } // end if
+        //historia += "descripcion: \t" + descripcion + "\n";
+        //obtener sonido
+        for (i = 0; i <= 3; i++){
+        if (document.miForm.optSonido[i].checked == true){
+        sonido = document.miForm.optSonido[i].value;
+        } // end if
+        } // end for loop
+        // historia += "sonido: \t" + sonido + "\n";
+        // obtener parte del cuerpo
+        var laLista = document.miForm.selCuerpo;
+        var laOpcion = laLista[laLista.selectedIndex];
+        parte = laOpcion.value;
+        // historia += "parte: \t" + parte + "\n";
+        
+        historia = "Un día, una persona que se llamaba " ;
+        historia += persona;
+        historia += " estaba paseando por la calle. Cuando, de pronto, ";
+        historia += persona;
+        historia += " oyó un horrible sonido: ";
+        historia += sonido;
+        historia += ". ";
+        historia += persona;
+        historia += " miró a su alrededor y vió que el ";
+        historia += sonido;
+        historia += " venía de un ";
+        historia += vehiculo;
+        historia += " que bajaba la calle a toda velocidad. ";
+        historia += persona;
+        historia += " se asustó mucho. ";
+        historia += persona;
+        historia += " vió que el ";
+        historia += vehiculo;
+        historia += " era conducido por el diablo Super-";
+        historia += animal;
+        historia += ". En su día, un ";
+        historia += animal;
+        historia += " normal, había sufrido una extraña transformación después ";
+        historia += "de caer en un depósito de basura nuclear. ";
+        historia += "Super-";
+        historia += animal;
+        historia += " siguió asustando a ";
+        historia += persona;
+        historia += " con el horrible ";
+        historia += sonido;
+        historia += " , pero, ";
+        historia += persona;
+        historia += " no se inmutó. \"No puedes asustarme, Super-";
+        historia += animal;
+        historia += "! Yo sé cómo girar la ";
+        historia += parte;
+        historia += "!\" \nFin.";
+        document.miForm.txtSalida.value = historia;
+        } // end function creaHD
+    </script>
+
+    <center> <h1>Historia disparatada 2.0<hr /></h1>
+    <form name="miForm" id="miForm" action="">
+    <h3>Please enter the following information</h3>
+    <table border = 1>
+    <tr><td>Un nombre de persona</td>
+    <td><input type="text" name="txtPersona" id="txtPersona" /></td>
+    </tr>
+    <tr> <td>descripción</td>
+    <td> <input type="checkbox" name="chkDiablo" value="diablo" />diablo
+    <input type="checkbox" name="chkGoofy" value="goofy" />goofy
+    <input type="checkbox" name="chkDisfunc" value="disfuncional" />
+    disfuncional
+    <input type="checkbox" name="chkChiflado" value="chiflado" />
+    chiflado</td>
+    </tr>
+    <tr> <td>Un ruido absurdo</td>
+    <td> <input type="radio" name="optSonido" value="phht!" /> phht!
+    <input type="radio" name="optSonido" value="boing!" /> boing!
+    <input type="radio" name="optSonido" value="whoosh!" /> whoosh!
+    
+    <input type="radio" name="optSonido" value="splat!" /> splat! </td>
+    </tr>
+    <tr>
+    <td>Una parte del cuerpo</td>
+    <td> <select name="selCuerpo">
+    <option value="dientes">dientes</option>
+    <option value="riñones">riñones</option>
+    <option value="mejilla">mejilla</option>
+    <option value="codo">codo</option>
+    <option value="cerebro">cerebro</option>
+    </select> </td>
+    </tr>
+    <tr> <td>Un vehículo</td>
+    <td><input type="text" name="txtVehiculo" id="txtVehiculo" /></td>
+    </tr>
+    <tr> <td>Un animal</td>
+    <td><input type="text" name="txtAnimal" id="txtAnimal" /></td>
+    </tr>
+    <tr> <td colspan="2"><center>
+    <input type="button" value="Click para el cuento"
+    onclick="creaHD()" /> </td>
+    </tr>
+    </table>
+    <textarea name="txtSalida" rows="10" cols="40" wrap="hard">
+    </textarea>
+    </form>
+    </center>
+    <hr />
+    </body>

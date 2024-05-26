@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicidad</title>
+</head>
+<body>
+    <h1>Anuncios rotatorios</h1>
+    <img src="rotatorias/banner0.png" id="fotoActual" onclick="enlace()">
+<script>
+    var banner=new Array();
+    var indice=0;
+    var todaslasfotos;
+    banner[0]="rotatorias/banner0.png";
+    banner[1]="rotatorias/banner1.png";
+    banner[2]="rotatorias/banner2.png";
+    banner[3]="rotatorias/banner3.png";
+    banner[4]="rotatorias/banner4.png";
+    banner[5]="rotatorias/banner5.png";
+    function publicidad(){
+        const myTimeout = setTimeout(siguiente, 3000);
+    }
+
+    function siguiente(){
+        if (indice==banner.length)
+        {indice=0;}
+    else {
+        indice=indice+1;
+    }
+    document.getElementById("fotoActual").src = "rotatorias/banner"+indice+".png" //se llaman a las fotos aqui
+    publicidad();
+}
+
+function enlace(){
+    switch(indice){
+        case 0:window.open("https://store.dsautomobiles.es/configurable"); break; //habre una nueva ventana del buscador o pestaña.
+        case 1:window.open("https://www.elcorteingles.es/supermercado/"); break;
+        case 2:window.open("https://www.elcorteingles.es/daitsu/electrodomesticos/aire-acondicionado/"); break;
+        case 3:window.open("https://www.madridhifi.com"); break;
+        case 4:window.open("https://launidad.movistarplus.es/?dis_c=331187589&dclid=CL-Lt9zx4_YCFdZEHQkdLpkExQ"); break;
+        case 5:window.open("https://www.tikamoon.es"); break;
+    }
+}
+    window.onload = publicidad();
+    </script>
+</body>
+</html>

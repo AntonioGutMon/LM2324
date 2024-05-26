@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create y appendChild</title>
+    
+    <script>
+        var fichero=new Array();
+        fichero[0]="ficheros/fichero1.pdf"
+        fichero[1]="ficheros/fichero2.pdf"
+        fichero[2]="ficheros/fichero3.pdf"
+        fichero[3]="ficheros/fichero4.pdf"
+        fichero[4]="ficheros/fichero5.pdf"
+        fichero[5]="ficheros/fichero6.pdf"
+        fichero[6]="ficheros/fichero7.pdf"
+        fichero[7]="ficheros/fichero8.pdf"
+        fichero[8]="ficheros/fichero9.pdf"
+        fichero[9]="ficheros/fichero10.pdf"
+        fichero[10]="ficheros/fichero11.pdf"
+        fichero[11]="ficheros/fichero12.pdf"
+        fichero[12]="ficheros/fichero13.pdf"
+        fichero[13]="ficheros/fichero14.pdf"
+        fichero[14]="ficheros/fichero15.pdf"
+        fichero[15]="ficheros/fichero16.pdf"
+        fichero[16]="ficheros/fichero17.pdf"
+        fichero[17]="ficheros/fichero18.pdf"
+        fichero[18]="ficheros/fichero19.pdf"
+        fichero[19]="ficheros/fichero20.pdf"
+
+        function meterelemento(){ 
+        var lista = document.getElementById("lista")
+        var descargas = document.createElement("li")
+       for (i=0;i<19;i++){
+        Efichero = fichero[i]
+       }
+        descargas.textContent = "Enlace  " + Efichero;
+        lista.appenchild(descargas);
+        }
+        window.onload = meterelemento();
+    </script>
+</head>
+<body>
+    <h2>Elige alguno de los siguientes enlaces para comenzar descargas</h2>
+    <ul id="lista"></ul>
+</body>
+</html>
+

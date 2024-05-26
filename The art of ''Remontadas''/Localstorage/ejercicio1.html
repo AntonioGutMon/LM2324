@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <input type="text" id="nombre">
+    <button onclick="guardar()">Guardar</button>
+    <p id="guardado"></p>
+    <script>
+        function guardar(){
+            localStorage.setItem("nombre", document.getElementById("nombre").value)
+        }
+        function cargar(){
+            var local = localStorage.getItem("nombre")
+            document.getElementById("guardado").innerHTML = local
+        }
+        window.onload = cargar()
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuracion de usuario personalizable</title>
+
+</head>
+<body>
+    
+<p id="parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean metus ipsum, ultricies vel facilisis ac, condimentum at ligula. Nunc hendrerit scelerisque finibus. Duis fermentum metus libero, id scelerisque mi convallis id. Suspendisse varius, leo vel blandit finibus, enim leo condimentum diam, varius tincidunt urna dui a erat. Cras ut volutpat neque. In id efficitur leo. Suspendisse a ipsum tempor, rutrum eros vestibulum, porta sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc gravida quam vulputate odio elementum, vel pretium tortor elementum. Fusce vel ante eu urna placerat tincidunt. In hac habitasse platea dictumst. Sed a tortor urna. Etiam purus libero, suscipit nec diam vitae, dictum rhoncus justo. Nunc nec scelerisque justo. Aenean molestie laoreet massa, at gravida ex. Sed congue eleifend magna vel placerat.</p>
+<!--<button onclick="aumentar()">Aumenta el tamaño</button>
+<button onclick="disminuye()">Reduce el tamaño</button>-->
+<button onclick="Resetear()">Resetear configuración</button>
+<input id="color" type="color" onchange="Colorfondo()">
+<!-- <select onchange="tamanotexto(this);" size="4">
+    <option>10px</option>
+    <option>15px</option>
+    <option>20px</option>
+    <option>25px</option>
+    <option>30px</option>
+    <option>35px</option>
+    <option>40px</option>
+    <option>45px</option>
+    <option>50px</option>
+  </select> -->
+   
+ <td> <select id="input-size" class="input" onchange="tamanotexto(this);"> 
+    <option value="10px" selected ="selected">10px</option>
+    <option value="15px">15px</option>
+    <option value="20px">20px</option>
+    <option value="30px">30px</option>
+    <option value="35px">35px</option>
+    </select> </td>
+
+<script>
+
+    
+
+    function tamanotexto(size){  //function tamanotexto(selectTag) {
+    document.getElementById("parrafo").style.fontSize = size.value //selectTag.options[selectTag.selectedIndex].text;
+     preferencias.tamano = size.value
+  } 
+
+    function Colorfondo(){
+      document.body.style.backgroundColor = document.getElementById("color").value
+      preferencias.color = document.body.style.backgroundColor;
+    }
+
+    function Resetear(){
+      document.getElementById("parrafo").style.fontSize = 100+"%";
+      document.body.style.backgroundColor = "white";    
+    }
+
+    function guardar(){
+      localStorage("preferencias", JSON.stringify(preferencias));
+
+      localStorage.setItem("tamaño", document.getElementById("parrafo").style.fontSize)
+      localStorage.setItem("color", document.body.style.backgroundColor);
+    }
+
+    function carga(){
+    let tamano = localStorage.getItem("tamaño");
+    if (tamano!=null){
+      document.getElementById("parrafo").style.fontSize = tamano
+    }
+      else{
+      document.getElementById("parrafo").style.fontSize = "25px"
+    }
+    let color = localStorage.getItem("color")
+    if(color!=null)
+    {
+      document.body.style.backgroundColor = color;
+    }
+    else{
+      document.body.style.backgroundColor= "white"; 
+    }  
+    }
+    
+
+window.onload = carga();
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinacifras</title>
+</head>
+<body>
+    <h1>¡Adivina el número en timepo record!</h1>
+    <p>He pensado un numero de 3 cifras...</p>
+    <button onclick="comenzar()" id="comenzar">Comenzar</button>
+    <p id="html"></p>
+    <p id="resultado"></p>
+
+    <script>
+
+        var inicio;
+
+        function comenzar(){
+            var inicio = new Date().getTime()
+            var comenzar = document.getElementById("comenzar")
+            comenzar.remove()
+            document.getElementById("html").innerHTML += `
+                <span id="numero1"></span><span id="numero2"></span><span id="numero3"></span><br><br>
+                <input type="text" id="numeroescrito" placeholder="Escribe tu numero"><br><br>
+                <button onclick="comprobar()">Comprobar</button><br><br>`
+            document.getElementById("numero1").innerHTML += Math.floor(Math.random() * 9)
+            document.getElementById("numero2").innerHTML += Math.floor(Math.random() * 9)
+            document.getElementById("numero3").innerHTML += Math.floor(Math.random() * 9)
+        }
+
+        function comprobar(){
+            var final = new Date().getTime()
+            var tiempoemple = (final-inicio)/1000;
+            var numeros = document.getElementById("numeroescrito").value
+            var todos = numeros.split('')
+            var comprobar1 = todos[0]
+            var comprobar2 = todos[1]
+            var comprobar3 = todos[2]
+            var acertados = 0
+            if(document.getElementById("numero1").innerHTML == comprobar1){
+                acertados += 1
+            }
+            if(document.getElementById("numero2").innerHTML == comprobar2){
+                acertados += 1
+            }
+            if(document.getElementById("numero3").innerHTML == comprobar3){
+                acertados += 1
+            }
+
+            if(acertados == 3){
+                document.getElementById("resultado").innerHTML = ("Enorabuena, has acertado, el tiempo empleado ha sido de " + tiempoemple)
+            }
+            else{
+                document.getElementById("resultado").innerHTML = ("Tu propuesta coincide en " + acertados + " cifras")
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

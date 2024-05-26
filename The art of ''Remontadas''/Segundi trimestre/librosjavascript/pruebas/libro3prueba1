@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>El acertijo</title>
+<script>
+// El acertijo
+// Demuestra el bucle while
+var solucion = "para llegar al otro lado";
+var intento = "";
+while (intento != solucion){
+respuesta = prompt ("Porqué cruzó el pavo la carretera?", "");
+if (intento == solucion){
+alert ("Muy gracioso, verdad?");
+} else {
+alert ("No, no es eso...");
+} // end if
+} // end while
+</script>
+</head>
+<body>
+<h1>El acertijo <br /></h1>
+<hr>
+</body>
+</html>

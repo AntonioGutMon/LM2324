@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardar visitas</title>
+</head>
+<body>
+    <p id="texto"></p>
+   <script>
+    function cargarPagina(){
+        let visitas = localStorage.getItem("visitas");
+        if (visitas!=null)
+        {
+            visitas = parseInt(visitas);
+            document.getElementById("texto").innerHTML="Has visitado esta pagina "+visitas+" veces";
+            visitas = visitas+1;
+            localStorage.setItem("visitas", visitas)
+        }
+        else{
+            document.getElementById("texto").innerHTML="Es la primera vez que entras en la pagina";
+            localStorage.setItem("visitas","2");
+        }
+    }
+    window.onload = cargarPagina();
+   </script>
+</body>
+</html>

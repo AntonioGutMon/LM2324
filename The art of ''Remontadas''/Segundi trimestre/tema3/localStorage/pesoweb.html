@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peso WEB</title>
+</head>
+<body>
+   <center> <h2> Bienvenido a FITNESS RECORD</h2> </center>
+<center> <img src="fitness/fit.jpg"> </center>
+<center> <span> Introduzca el peso a guardar </span> <input id="datos" type="text"> 
+<button onclick="guardar()">Guardar</button> <br> </center>
+ <center> <p id="anterior"> </p> </center>
+<center> <p id="resultado"></p> </center>
+<script>
+    var datosactuales
+    function guardar(){
+       datosactuales = document.getElementById("datos").value
+       localStorage.setItem("pesoactual",datosactuales)
+       comparar();
+    }
+
+    function cargar(){
+        let pesito = localStorage.getItem("pesoactual")
+    if (pesito!=null){
+        document.getElementById("anterior").innerHTML="Su peso anterior era de " + pesito + " Kg";
+       } else{
+        document.getElementById("anterior").innerHTML="No tiene peso guardado"; }
+    }
+
+    function comparar(){
+        var calculopeso
+        let pesito = localStorage.getItem("pesoactual")
+    if (pesito<=datosactuales){
+        calculopeso = calculopeso + pesito-datosactuales;
+        document.getElementById("resultado").innerHTML="Ha aumentado " + calculopeso  ;
+       } else if(pesito==datosactuales){
+        document.getElementById("resultado").innerHTML="Tiene el mismo peso"; }
+       else{
+        calculopeso = calculopeso + pesito - datosactuales;
+        document.getElementById("resultado").innerHTML="Ha perdido " + calculopeso + ". Enhorabuena!";
+       }
+    }
+
+window.onload = cargar()
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>El Oráculo</title>
+<script>
+// El Oráculo
+var lanzamiento = 0;
+var futuro = "";
+lanzamiento = Math.floor(Math.random() * 5) + 1;
+switch(lanzamiento){
+case 1:
+futuro = "El futuro pinta muy negro.";
+break;
+case 2:
+futuro = "El futuro no es nada alagüeño.";
+break;
+case 3:
+futuro = "El futuro pinta así así.";
+break;
+case 4:
+futuro = "El futuro pinta bien.";
+break;
+case 5: futuro = "Estas en un día perfecto!";
+break;
+default:
+futuro = "ERROR";
+} // end switch
+alert(futuro);
+</script>
+</head>
+<body>
+<h1>El Oráculo<br /></h1>
+<hr />
+<h3>Pulsar recargar para otra predicción</h3>
+</body>
+</html>

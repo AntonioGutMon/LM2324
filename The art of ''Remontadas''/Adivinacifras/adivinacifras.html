@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinacifras</title>
+</head>
+<body>
+    <h1>¡Adivina el numero en tiempo record!</h1>
+    <p>He pensado un numero de 3 cifras...</p>
+    <p id="anadir"></p>
+    <button onclick="comenzar()">Comenzar</button>
+    <button onclick="comprobar()">Comprobar</button>
+    <p id="resultado"></p>
+    <script>
+
+        function numeroramdom(){
+            document.getElementById("cifra1").innerHTML = Math.floor(Math.random() * 9)
+            document.getElementById("cifra2").innerHTML = Math.floor(Math.random() * 9)
+            document.getElementById("cifra3").innerHTML = Math.floor(Math.random() * 9)
+        }
+
+        function comprobar(){
+            var valor = 0
+            var resultado = "Has acertado " + valor + " cifras de 3<br>"
+            var numero = document.getElementById("numerointro").value
+            var numero1 = numero.substring(0,1)
+            var numero2 = numero.substring(1,2)
+            var numero3 = numero.substring(2,3)
+            if(numero1 == document.getElementById("cifra1").value){
+                valor++
+            }
+            if(numero2 == document.getElementById("cifra2").value){
+                valor+=1
+            }
+            if(numero3 == document.getElementById("cifra3").value){
+                valor+=1
+            }
+            document.getElementById("resultado").innerHTML += resultado
+        }
+
+        function comenzar(){
+            document.getElementById("anadir").innerHTML = `
+                <p id="cifra1"></p><span id="cifra2"></span><span id="cifra3"></span><br><br>
+                <input type="text" id="numerointro">`
+            numeroramdom()
+        }
+
+
+
+
+    </script>
+</body>
+</html>

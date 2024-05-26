@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificaciones</title>
+    <script src="calificaciones.js"></script>
+</head>
+<body>
+    <p>Introduzca el nombre del alumno</p>
+    <input type="text" id="nombrealumno"> <button onclick="guardarnombre()">Guardar</button>
+    <p> Por favor, introduzca las notas del alumno</p>
+ <label for="">1º Trimestre</label> <input id="trimestre1" type="text"> <button onclick="tri1()">Añadir</button> <span class="fallo" id="campo1"> </span> <br>
+ <label for="">2º Trimestre</label> <input id="trimestre2" type="text"> <button onclick="tri2()">Añadir</button> <span class="fallo" id="campo2"> </span> <br>
+ <label for="">3º Trimestre</label> <input id="trimestre3" type="text"> <button onclick="tri3()">Añadir</button><span class="fallo" id="campo3"> </span>  <br><br>
+ <label for="">Pulsa el boton para borrar todas las calificaciones</label> <button onclick="borrarnotas()">Borrar</button> <br><br>
+ <p id="borrado"></p>
+ <label for="">Pulsa el boton para mostrar la media</label> <button onclick="media()">Media</button>   
+ <p id="resultadomedia"></p>
+
+
+</body>
+</html>
+
