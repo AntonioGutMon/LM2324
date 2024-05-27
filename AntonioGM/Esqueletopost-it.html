@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Post-It</title>
+<style>
+/* Estilos globales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffeb3b; /* Color de fondo de post-it */
+}
+
+/* Estilo para el contenedor principal */
+.content {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilos para la lista no numerada */
+ul {
+    list-style-type: none; /* Eliminamos los marcadores predeterminados */
+    padding: 0;
+}
+
+ul li {
+    position: relative;
+    padding-left: 30px; /* Añadimos espacio para el ícono del pin */
+    margin-bottom: 10px;
+}
+
+ul li::before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF6347" width="24px" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C10.62 2 9.5 3.12 9.5 4.5V10H7c-1.1 0-2 .9-2 2v1c0 .55.45 1 1 1h.55l1.38 6.88c.11.55.61.92 1.16.92h5.82c.55 0 1.05-.37 1.16-.92L15.45 14H16c.55 0 1-.45 1-1v-1c0-1.1-.9-2-2-2h-2.5V4.5C14.5 3.12 13.38 2 12 2zM12 22c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"/></svg>');
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+button {
+    margin: 20px 20px;
+}
+input {
+    margin-left: 20px;
+}
+</style>
+<script>
+/* Rellenar con el código que proceda */
+</script>
+</head>
+<body>
+<div class="content">
+        <h1>Post-It</h1>
+        <ul id="listaTareas">
+
+        </ul>
+    </div>
+<input type="text" id="tarea">
+<button onclick="anadirTarea()">Agregar Tarea</button>
+<script>
+    function anadirTarea(){
+
+        var lista = document.getElementById("listaTareas");
+        var elemento = document.createElement("li");
+        var nuevo = document.getElementById("tarea").value;
+
+        if(nuevo != ''){
+            document.getElementById("tarea").textContent="";
+            elemento.innerHTML = nuevo + ` <button onclick="eliminar()">Eliminar</button>`;
+            lista.appendChild(elemento);
+            localStorage.setItem("tareas", elemento.innerHTML);  
+        }
+
+    }
+
+    function eliminar(){
+
+        localStorage.removeItem("tareas")
+        elemento.remove()
+
+    }
+    
+    function cargarPagina(){
+
+        let cadenaTareas = localStorage.getItem("tareas");
+        document.getElementById("listaTareas").innerHTML = cadenaTareas
+            
+    }
+
+        window.onload = cargarPagina();
+</script>
+</body>
+</html>

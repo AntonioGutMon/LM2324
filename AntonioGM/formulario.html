@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h2>Formulario de registro</h2>
+    <label for="">Correo:</label><input type="email" id="email"><br><br>
+    <label for="">DNI:</label><input type="text" id="dni"><br><br>
+    <label for="">Contraseña:</label><input id="password1" type="password"><br><br>
+    <label for="">Confirmar contraseña:</label><input id="password2" type="password"><br><br>
+    <label for="">Acepto la politica de privacidad:</label><input id="edad" type="checkbox" value="off"><br><br>
+    <button onclick="validar()">Registrarse</button>
+    <p id="error"></p>
+    <p id="usuario"></p>
+
+    <script>
+        function validar(){
+
+            var dni = document.getElementById("dni").value
+            var contrasena1 = document.getElementById("password1").value
+            var contrasena2 = document.getElementById("password2").value
+            var checkbox = document.getElementById("password2").value
+
+            if(document.getElementById("email").value == ""){
+                document.getElementById("error").innerHTML = ("Debes rellenar el campo correo")
+            }
+            else{
+                validarEmail()
+            }
+            if(dni == ""){
+                document.getElementById("error").innerHTML = ("Debes rellenar el campo DNI")
+            }
+            else{
+                validarDNI()
+            }
+            if(contrasena1 == ""){
+                document.getElementById("error").innerHTML = ("Debes rellenar el campo Contraseña")
+            }
+            else{
+                validaPasswords()
+            }
+            if(contrasena2 == ""){
+                document.getElementById("error").innerHTML = ("Debes rellenar el campo Confirmar contraseña")
+            }
+            else{
+                validaPasswords()
+            }
+            if(checkbox == "off"){
+                document.getElementById("error").innerHTML = ("Debes aceptar la politica de privacidad")
+            }
+
+            var numerousu = document.getElementById("dni").value.substring(0,3)
+            var letrausu = document.getElementById("dni").value.substring(8,9)
+            var nombreusu = document.getElementById("email").value.substring(0,3)
+            var total = nombreusu + numerousu + letrausu
+            document.getElementById("usuario").innerHTML = total
+
+        }
+
+        function validarEmail(){              
+                var valido;
+                var emailField = document.getElementById('email');
+                var validEmail =  /^\w+([.-_+]?\w+)*@iesamachado.org\w+([.-]?\w+)*(\.\w{2,10})+$/;
+                if(validEmail.test(emailField.value)){
+                    document.getElementById("error").innerHTML = "El email debe ser del dominio @iesamachado.org"
+                }
+                
+            } 
+            function validaPasswords(){
+                let clave1 = document.getElementById("password1").value;
+                let clave2 = document.getElementById("password2").value;
+                let contrasenaregular = /^[0-9]+$/
+                let passwordsOK = true;
+                if (clave1.length<12 || (clave1!=clave2) || !contrasenaregular.match(clave1))
+                    passwordsOK = false;
+                
+                document.getElementById("error").innerHTML = ("Las contraseñas deben de ser iguales, contener 12 caracteres y solo puede contener numeros")
+            }
+
+            function validarDNI(){
+                var letra=['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'];
+                var cadena = document.getElementById("dni").value; 
+                var numero = parseInt(cadena.substring(0,8)); 
+                var letraUsuario = cadena[8]; 
+                var letraReal = letra[numero%23]; 
+                if (letraUsuario!=letraReal) 
+                document.getElementById("error").innerHTML = ("El DNI debe de existir y tener la extension correcta")
+
+            }
+
+    </script>
+</body>
+</html>
